@@ -27,10 +27,7 @@
             New Flight
           </div>
         </div>
-        <div class="navbar__main__container__links__item shrink">
-          <img src="../../assets/icons/navbar/about.png" />
-          <div class="navbar__main__container__links__item__text">About Us</div>
-        </div>
+
         <div
           class="navbar__main__container__links__item shrink"
           (click)="onRegister()"
@@ -63,12 +60,12 @@
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item>
-              <mat-icon>account_circle</mat-icon>
-              <span>My Profile</span>
+              <mat-icon> local_hotel</mat-icon>
+              <span>Accommodations</span>
             </button>
-            <button mat-menu-item (click)="onTickets()" *ngIf="role !== 'ADMIN'">
-              <img src="../../assets/icons/navbar/ticket.png" class="menu-img" />
-              <span>My Tickets</span>
+            <button mat-menu-item (click)="onRequests()" *ngIf="role !== 'ADMIN'">
+              <mat-icon>notification_important</mat-icon>
+              <span>Requests</span>
             </button>
             <button mat-menu-item (click)="onLogout()" class="logout">
               <mat-icon>logout</mat-icon>
@@ -83,7 +80,7 @@
     <div class="burger-menu-toggle__links">
       <div class="burger-menu-toggle__links__item" (click)="onHome()">00 Home</div>
       <div class="burger-menu-toggle__links__item" *ngIf="isLogged">01 Profile</div>
-      <div class="burger-menu-toggle__links__item" *ngIf="isLogged" (click)="onTickets()">
+      <div class="burger-menu-toggle__links__item" *ngIf="isLogged" (click)="onRequests()">
         02 Tickets
       </div>
       <div class="burger-menu-toggle__links__item" (click)="onRegister()">00 Home</div>

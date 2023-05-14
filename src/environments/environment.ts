@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   authURL: 'http://localhost:5000/Auth',
+  reservationURL: 'http://localhost:8081/reservation',
 }
 
 /*

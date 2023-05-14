@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { MainAppRoutingModule } from './main-app-routing.module';
-import { MainAppComponent } from './main-app.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { RouterModule } from '@angular/router'
+import { MainAppRoutingModule } from './main-app-routing.module'
+import { MainAppComponent } from './main-app.component'
+import { MatIconModule } from '@angular/material/icon'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
+import { NavbarComponent } from '../navbar/navbar.component'
+import { ReservationRequestsModule } from '../reservation-requests/reservation-requests.module'
+import { RequestService } from '../reservation-requests/services/request.service'
 
 @NgModule({
   declarations: [MainAppComponent, NavbarComponent],
@@ -17,7 +19,9 @@ import { NavbarComponent } from '../navbar/navbar.component';
     MatIconModule,
     MatMenuModule,
     MatAutocompleteModule,
+    ReservationRequestsModule,
   ],
   exports: [MatMenuModule],
+  providers: [RequestService],
 })
 export class MainAppModule {}

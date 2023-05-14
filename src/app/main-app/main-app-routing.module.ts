@@ -1,5 +1,7 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'
+import { NgModule } from '@angular/core'
+import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
+import { RequestsPageComponent } from '../reservation-requests/components/requests-page/requests-page.component'
 
 const routes: Routes = [
   // {
@@ -7,14 +9,14 @@ const routes: Routes = [
   //   component: LandingPageComponent,
   //   title: 'VIMA Airlines',
   // },
-  // {
-  //   path: '*',
-  //   component: NotfoundPageComponent,
-  // },
-  // {
-  //   path: 'search-result',
-  //   component: MainSearchResComponent,
-  // },
+  {
+    path: '*',
+    component: NotfoundPageComponent,
+  },
+  {
+    path: 'requests',
+    component: RequestsPageComponent,
+  },
   // {
   //   path: 'create-flight',
   //   component: CreateFlightPageComponent,
@@ -37,7 +39,7 @@ const routes: Routes = [
   //   path: 'search-result',
   //   component: MainSearchResComponent,
   // },
-];
+]
 
 @NgModule({
   declarations: [],
