@@ -1,12 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: LandingPageComponent,
-  //   title: 'VIMA Airlines',
-  // },
+  {
+    path: '',
+    component: LandingPageComponent,
+    title: 'VIMA Booking',
+  },
   // {
   //   path: '*',
   //   component: NotfoundPageComponent,
@@ -44,4 +45,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainAppRoutingModule {}
+export class MainAppRoutingModule { }

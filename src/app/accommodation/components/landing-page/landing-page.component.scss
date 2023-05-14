@@ -1,0 +1,45 @@
+@import url('../../../../colors.scss');
+
+.page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__hero {
+    height: 45%;
+    width: 100%;
+    background-image: url('../../../../assets/icons/navbar/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center -300px;
+    border-top: 1px solid var(--fav-light);
+    border-bottom: 1px solid var(--pure-black);
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+
+    &__search {
+      position: relative;
+      bottom: 8vmin;
+      width: 70%;
+      height: 100%;
+      margin: auto;
+      background-color: var(--fav-light);
+      border-radius: 1rem;
+    }
+
+    &__info-cards {
+      height: 100%;
+      width: 70%;
+      margin: auto;
+      margin-bottom: 25px;
+    }
+  }
+}
