@@ -9,6 +9,8 @@ import { SearchRequest } from '../interface/SearchRequest';
 import { SearchResponse } from '../interface/SearchResponse';
 import { SearchResult } from '../components/class/SearchResult';
 import { browserRefresh } from 'src/app/app.component';
+import { SpecialPeriodRequest } from '../interface/SpecialPeriodRequest';
+import { SpecialPeriodResponse } from '../interface/SpecialPeriodResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +59,9 @@ export class AccommdationService {
 
   public search(request: SearchRequest): Observable<SearchResponse[]> {
     return this.http.post<SearchResponse[]>(`${this.apiServiceUrl}/search`, request);
+  }
+
+  public createSpecialPeriod(request: SpecialPeriodRequest): Observable<SpecialPeriodResponse> {
+    return this.http.post<SpecialPeriodResponse>(`${this.apiServiceUrl}/special-period`, request);
   }
 }

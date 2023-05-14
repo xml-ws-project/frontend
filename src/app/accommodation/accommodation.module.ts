@@ -12,13 +12,21 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { ResultOverviewComponent } from './components/result-overview/result-overview.component';
 import { MatTableModule } from '@angular/material/table';
+import { AccommodationsOverviewComponent } from './components/host/accommodations-overview/accommodations-overview.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { UpdateAccommodationDialogComponent } from './components/host/update-accommodation-dialog/update-accommodation-dialog.component';
+import { CreateSpecialPeriodDialogComponent } from './components/host/create-special-period-dialog/create-special-period-dialog.component';
 
 @NgModule({
   declarations: [
     LandingPageComponent,
     InfoCardComponent,
     SearchComponent,
-    ResultOverviewComponent
+    ResultOverviewComponent,
+    AccommodationsOverviewComponent,
+    UpdateAccommodationDialogComponent,
+    CreateSpecialPeriodDialogComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -32,7 +40,9 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatDatepickerModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatSelectModule
   ]
 })
 export class AccommodationModule { }

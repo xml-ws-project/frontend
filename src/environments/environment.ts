@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   reservationURL: 'http://localhost:8081/reservation',
-  authURL: 'http://localhost:8081/auth',
+  authURL: 'http://localhost:8081/api/auth',
   accommodationURL: 'http://localhost:8081/accommodation'
 }
 

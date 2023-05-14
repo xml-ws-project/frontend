@@ -56,4 +56,28 @@
       width: 100%;
     }
   }
+
+  &-address-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: 15rem;
+    font-size: 2rem;
+    gap: 3rem;
+    color: var(--fav-light);
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 3rem;
+
+      &-header {
+        font-size: 2.2rem;
+        font-weight: 500;
+      }
+    }
+  }
 }

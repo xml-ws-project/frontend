@@ -15,7 +15,7 @@ export class AuthService {
   user = new BehaviorSubject<User>(null as any)
   authURL = environment.authURL
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {}
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   public register(data: RegisterDTO): Observable<string> {
     return this.http
@@ -25,7 +25,7 @@ export class AuthService {
 
   public login(data: LoginDTO): Observable<string> {
     return this.http
-      .post(`${this.authURL}/login`, data, { responseType: 'text' })
+      .post(`${this.authURL}/authenticate`, data, { responseType: 'text' })
       .pipe(
         tap((response) => {
           this.handleLogin(response)
@@ -36,7 +36,7 @@ export class AuthService {
 
   private handleLogin(token: string) {
     var decoded: any = jwtDecode(token)
-    var expiresInSec = decoded.expiresIn * 60000
+    var expiresInSec = decoded.exp * 60000
     var expireDate = new Date(new Date().getTime() + expiresInSec)
     var user = new User(decoded.id, decoded.email, decoded.role, token, expireDate)
     this.user.next(user)

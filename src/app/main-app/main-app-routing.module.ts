@@ -5,7 +5,7 @@ import { RequestsPageComponent } from '../reservation-requests/components/reques
 import { AddAccomComponent } from '../add-accom/add-accom.component'
 import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component';
 import { ResultOverviewComponent } from '../accommodation/components/result-overview/result-overview.component';
-
+import { AccommodationsOverviewComponent } from '../accommodation/components/host/accommodations-overview/accommodations-overview.component'
 
 const routes: Routes = [
   {
@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'add-accom',
     component: AddAccomComponent,
     title: 'VIMA Booking | Add Accommodation',
+  },
+  {
+    path: 'accommodations-overview',
+    component: AccommodationsOverviewComponent
   }
 ];
 

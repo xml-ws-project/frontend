@@ -11,7 +11,7 @@ import { AuthService } from '../auth/services/auth.service'
 })
 export class NavbarComponent implements OnInit {
   private userSub: Subscription | undefined
-  public isLogged: boolean = true
+  public isLogged: boolean = false
   public email: string = ''
   public role: string = ''
   public burger: boolean = true
@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit {
         let NewTime = hour + ':' + minuts + ':' + seconds
         this.currentDate = time
       })
-    //this.isLogged = this.authService.isLogged()
+    this.isLogged = this.authService.isLogged()
   }
 
   onHome() {

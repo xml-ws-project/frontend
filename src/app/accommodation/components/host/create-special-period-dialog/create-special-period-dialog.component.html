@@ -1,0 +1,48 @@
+<div class="content">
+  <div class="content-header">
+    Create special period of selected accommodation
+  </div>
+  <div class="content-row">
+    <div>
+      Special period :
+    </div>
+    <div>
+      <mat-form-field style="height: 1rem; width: 26rem; font-size: 1.6rem; margin-bottom: 4rem;" appearance="fill" class="content-picker">
+        <mat-label>Enter a desired period</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate [(ngModel)]="specialPeriodRequest.specialPeriodStart" placeholder="Start date" >
+          <input matEndDate [(ngModel)]="specialPeriodRequest.specialPeriodEnd" placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="content-row">
+    <div>
+      Special price :
+    </div>
+    <div>
+      <input placeholder="Price" [(ngModel)]="specialPeriodRequest.specialPrice" class="content-row-number" min="1" step="1" type="number">
+    </div>
+  </div>
+  <div class="content-row">
+    <div>
+      Period type :
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label style="font-size: 1.8rem;">Period type</mat-label>
+        <mat-select style="height: 1rem;">
+          <mat-option *ngFor="let type of periodTypes" [value]="specialPeriodRequest.periodType">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="content-button">
+    <button mat-raised-button (click)="createSpecialPeriod()" mat-dialog-close style="height: 4rem; width: 15rem; font-size: 1.6rem;" color="primary">Update</button>
+  </div>
+</div>
