@@ -27,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr'
     AuthModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
     }),
   ],
   providers: [
