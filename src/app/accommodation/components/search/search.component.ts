@@ -57,7 +57,7 @@ export class SearchComponent implements OnInit {
           response
         )
         this.accommodationService.changeData(searchResult, true);
-        this.router.navigate(['/search-result'])
+        this.router.navigate(['/result-overview'])
       },
       (error: HttpErrorResponse) => {
         this.toastrService.error(error.message);

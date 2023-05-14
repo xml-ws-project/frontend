@@ -45,7 +45,6 @@ export class NavbarComponent implements OnInit {
         let NewTime = hour + ':' + minuts + ':' + seconds
         this.currentDate = time
       })
-
     //this.isLogged = this.authService.isLogged()
   }
 
@@ -74,6 +73,10 @@ export class NavbarComponent implements OnInit {
 
   onNewFlight() {
     this.router.navigate(['/create-flight'])
+  }
+
+  onTickets() {
+    this.router.navigate(['/user/tickets'])
   }
 
   onRequests() {

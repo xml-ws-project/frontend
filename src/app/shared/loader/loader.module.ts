@@ -27,11 +27,11 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbDirection: 'ltr',
   pbThickness: 3,
   hasProgressBar: true,
-  text: 'VIMA Booking ©',
+  text: 'VIMA Airlines ©',
   textColor: '#FFFFFF',
   textPosition: 'center-center',
   minTime: 300,
-}
+};
 
 @NgModule({
   declarations: [LoaderComponent],
