@@ -3,10 +3,10 @@
   <h2>Login</h2>
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <div class="user-box">
-      <input id="email" name="email" type="text" #email="ngModel" matInput required ngModel email />
+      <input id="username" name="username" type="text" #username="ngModel" matInput required ngModel username />
       <label>Email</label>
     </div>
-    <div *ngIf="!email.valid && email.touched" class="input-error">Please enter valid email.</div>
+    <div *ngIf="!username.valid && username.touched" class="input-error">Please enter valid username.</div>
     <div class="user-box">
       <input
         id="pass"

@@ -7,7 +7,6 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { NavbarComponent } from '../navbar/navbar.component'
-import { NavbarComponent } from '../navbar/navbar.component';
 import { AccommodationModule } from '../accommodation/accommodation.module';
 import { ReservationRequestsModule } from '../reservation-requests/reservation-requests.module'
 import { RequestService } from '../reservation-requests/services/request.service'
@@ -27,4 +26,4 @@ import { RequestService } from '../reservation-requests/services/request.service
   exports: [MatMenuModule],
   providers: [RequestService],
 })
-export class MainAppModule {}
+export class MainAppModule { }
