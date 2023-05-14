@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core'
 import { MatMenuTrigger } from '@angular/material/menu'
 import { Router } from '@angular/router'
 import { map, share, Subscription, timer } from 'rxjs'
+import { AuthService } from '../auth/services/auth.service'
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,7 @@ import { map, share, Subscription, timer } from 'rxjs'
 })
 export class NavbarComponent implements OnInit {
   private userSub: Subscription | undefined
-  public isLogged: boolean = false
+  public isLogged: boolean = true
   public email: string = ''
   public role: string = ''
   public burger: boolean = true
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -27,11 +28,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.userSub = this.authService.user.subscribe((user) => {
-    //   if (user == null) return;
-    //   this.email = user.email;
-    //   this.role = user.role;
-    // });
+    this.userSub = this.authService.user.subscribe((user) => {
+      if (user == null) return
+      this.email = user.email
+      this.role = user.role
+    })
     this.subscription = timer(0, 1000)
       .pipe(
         map(() => new Date()),
@@ -44,7 +45,8 @@ export class NavbarComponent implements OnInit {
         let NewTime = hour + ':' + minuts + ':' + seconds
         this.currentDate = time
       })
-    // this.isLogged = this.authService.isLogged();
+
+    //this.isLogged = this.authService.isLogged()
   }
 
   onHome() {
@@ -57,7 +59,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-    //this.authService.logout();
+    this.authService.logout()
     this.isLogged = !this.isLogged
     window.location.reload()
   }
@@ -74,8 +76,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/create-flight'])
   }
 
-  onTickets() {
-    this.router.navigate(['/user/tickets'])
+  onRequests() {
+    this.router.navigate(['/requests'])
+  }
+
+  addAccom() {
+    this.router.navigate(['/add-accom'])
   }
 
   ngOnDestroy() {

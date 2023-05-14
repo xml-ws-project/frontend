@@ -1,26 +1,29 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component';
+import { Routes, RouterModule } from '@angular/router'
+import { NgModule } from '@angular/core'
+import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
+import { RequestsPageComponent } from '../reservation-requests/components/requests-page/requests-page.component'
+import { AddAccomComponent } from '../add-accom/add-accom.component'
+import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component'
 
 const routes: Routes = [
   {
     path: '',
     component: LandingPageComponent,
-    title: 'VIMA Booking',
+    title: 'VIMA Airlines',
   },
-  // {
-  //   path: '*',
-  //   component: NotfoundPageComponent,
-  // },
-  // {
-  //   path: 'search-result',
-  //   component: MainSearchResComponent,
-  // },
-  // {
-  //   path: 'create-flight',
-  //   component: CreateFlightPageComponent,
-  //   title: 'VIMA Airlines | Create Flight',
-  // },
+  {
+    path: '*',
+    component: NotfoundPageComponent,
+  },
+  {
+    path: 'requests',
+    component: RequestsPageComponent,
+  },
+  {
+    path: 'add-accom',
+    component: AddAccomComponent,
+    title: 'VIMA Booking | Add Accommodation',
+  },
   // {
   //   path: 'show-flight/:id',
   //   component: ShowFlightPageComponent,
@@ -38,11 +41,11 @@ const routes: Routes = [
   //   path: 'search-result',
   //   component: MainSearchResComponent,
   // },
-];
+]
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainAppRoutingModule { }
+export class MainAppRoutingModule {}

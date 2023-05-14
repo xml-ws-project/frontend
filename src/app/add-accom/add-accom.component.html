@@ -1,0 +1,248 @@
+<div class="add-accom">
+  <div class="add-accom__content">
+    <div class="add-accom__content__title">Fill out form below, to add accommodation.</div>
+    <div class="add-accom__content__form">
+      <form [formGroup]="form" (submit)="onFormSubmit()">
+        <div class="add-accom__content__form__row">
+          <div class="add-accom__content__form__row__item">
+            <input formControlName="name" id="name" name="name" type="text" matInput required />
+            <label>Name</label>
+            <div *ngIf="form.get('name').invalid && form.get('name').touched">
+              <div *ngIf="form.get('name').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="minGuests"
+              id="minGuests"
+              name="minGuests"
+              type="number"
+              matInput
+              required
+            />
+            <label>Min Guests</label>
+            <div *ngIf="form.get('minGuests').invalid && form.get('minGuests').touched">
+              <div *ngIf="form.get('minGuests').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="maxGuests"
+              id="maxGuests"
+              name="maxGuests"
+              type="number"
+              matInput
+              required
+            />
+            <label>Max Guests</label>
+            <div *ngIf="form.get('maxGuests').invalid && form.get('maxGuests').touched">
+              <div *ngIf="form.get('maxGuests').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-accom__content__form__row">
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="country"
+              id="country"
+              name="country"
+              type="text"
+              matInput
+              required
+            />
+            <label>Country</label>
+            <div *ngIf="form.get('country').invalid && form.get('country').touched">
+              <div *ngIf="form.get('country').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <input formControlName="city" id="city" name="city" type="text" matInput required />
+            <label>City</label>
+            <div *ngIf="form.get('city').invalid && form.get('city').touched">
+              <div *ngIf="form.get('city').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="street"
+              id="street"
+              name="street"
+              type="text"
+              matInput
+              required
+            />
+            <label>Street</label>
+            <div *ngIf="form.get('street').invalid && form.get('street').touched">
+              <div *ngIf="form.get('street').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="number"
+              id="number"
+              name="number"
+              type="text"
+              matInput
+              required
+            />
+            <label>Number</label>
+            <div *ngIf="form.get('number').invalid && form.get('number').touched">
+              <div *ngIf="form.get('number').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="postalCode"
+              id="postalCode"
+              name="postalCode"
+              type="number"
+              matInput
+              required
+            />
+            <label>Postal Code</label>
+            <div *ngIf="form.get('postalCode').invalid && form.get('postalCode').touched">
+              <div *ngIf="form.get('postalCode').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-accom__content__form__row">
+          <div class="add-accom__content__form__row__item">
+            <input
+              formControlName="regularPrice"
+              id="regularPrice"
+              name="regularPrice"
+              type="number"
+              matInput
+              required
+            />
+            <label>Price</label>
+            <div *ngIf="form.get('regularPrice').invalid && form.get('regularPrice').touched">
+              <div *ngIf="form.get('regularPrice').errors?.['required']" class="input-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <mat-form-field appearance="fill">
+              <mat-label>Payment Type</mat-label>
+              <mat-select formControllName="paymentType" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let type of paymentTypes" [value]="type.value">
+                  {{ type.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <mat-form-field appearance="fill">
+              <mat-label>Additional Benefits</mat-label>
+              <mat-select formControllName="benefitsIds" multiple>
+                <mat-option *ngFor="let item of benefits" [value]="item.value">{{
+                  item.name
+                }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="add-accom__content__form__row">
+          <mat-label class="add-accom__content__form__row__item--automatic"
+            >Enable automatic reservation accept:</mat-label
+          >
+          <label class="checkbox-label">
+            <input
+              type="radio"
+              name="automaticAcceptance"
+              [value]="true"
+              formControlName="automaticAcceptance"
+              required
+            />
+            <span class="checkbox-custom"></span>
+            Enable
+          </label>
+          <label class="checkbox-label">
+            <input
+              type="radio"
+              name="automaticAcceptance"
+              [value]="false"
+              formControlName="automaticAcceptance"
+            />
+            <span class="checkbox-custom"></span>
+            Disable
+          </label>
+        </div>
+        <div class="add-accom__content__form__row">
+          <div class="add-accom__content__form__row__item">
+            <mat-form-field appearance="fill" color="accent">
+              <mat-label>Start date</mat-label>
+              <input
+                id="start"
+                name="start"
+                formControlName="start"
+                matInput
+                [matDatepicker]="pickerS"
+                required
+                readonly
+              />
+              <mat-datepicker-toggle matSuffix [for]="pickerS"></mat-datepicker-toggle>
+              <mat-datepicker required #pickerS color="primary"></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf="form.get('start').invalid && form.get('start').touched">
+              <div *ngIf="form.get('start').errors?.['required']" class="input-error date-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="add-accom__content__form__row__item">
+            <mat-form-field appearance="fill" color="accent">
+              <mat-label>End date</mat-label>
+              <input
+                id="end"
+                name="end"
+                formControlName="end"
+                matInput
+                [matDatepicker]="pickerE"
+                required
+                readonly
+              />
+              <mat-datepicker-toggle matSuffix [for]="pickerE"></mat-datepicker-toggle>
+              <mat-datepicker required #pickerE color="primary"></mat-datepicker>
+            </mat-form-field>
+            <div *ngIf="form.get('end').invalid && form.get('end').touched">
+              <div *ngIf="form.get('end').errors?.['required']" class="input-error date-error">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-accom__content__form__row">
+          <button type="submit" id="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
