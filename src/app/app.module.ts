@@ -13,9 +13,16 @@ import { AuthModule } from './auth/auth.module'
 import { CustomToastrService } from './shared/services/custom-toastr.service'
 import { JwtInterceptor } from './interceptor/jwt.interceptor'
 import { ToastrModule } from 'ngx-toastr'
+import { AddAccomComponent } from './add-accom/add-accom.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatNativeDateModule } from '@angular/material/core'
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, AddAccomComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +32,13 @@ import { ToastrModule } from 'ngx-toastr'
     BrowserAnimationsModule,
     HttpClientModule,
     AuthModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,

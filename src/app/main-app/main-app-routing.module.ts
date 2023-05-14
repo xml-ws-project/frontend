@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router'
 import { NgModule } from '@angular/core'
 import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
 import { RequestsPageComponent } from '../reservation-requests/components/requests-page/requests-page.component'
+import { AddAccomComponent } from '../add-accom/add-accom.component'
 
 const routes: Routes = [
   // {
@@ -17,11 +18,11 @@ const routes: Routes = [
     path: 'requests',
     component: RequestsPageComponent,
   },
-  // {
-  //   path: 'create-flight',
-  //   component: CreateFlightPageComponent,
-  //   title: 'VIMA Airlines | Create Flight',
-  // },
+  {
+    path: 'add-accom',
+    component: AddAccomComponent,
+    title: 'VIMA Booking | Add Accommodation',
+  },
   // {
   //   path: 'show-flight/:id',
   //   component: ShowFlightPageComponent,

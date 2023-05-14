@@ -80,6 +80,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/requests'])
   }
 
+  addAccom() {
+    this.router.navigate(['/add-accom'])
+  }
+
   ngOnDestroy() {
     clearInterval(this.intervalId)
     if (this.subscription) {

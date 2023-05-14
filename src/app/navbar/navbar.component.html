@@ -59,9 +59,9 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon> local_hotel</mat-icon>
-              <span>Accommodations</span>
+            <button mat-menu-item (click)="addAccom()">
+              <mat-icon>add_box</mat-icon>
+              <span>Accommodation</span>
             </button>
             <button mat-menu-item (click)="onRequests()" *ngIf="role !== 'ADMIN'">
               <mat-icon>notification_important</mat-icon>
