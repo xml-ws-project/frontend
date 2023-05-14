@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  authURL: 'http://localhost:5000/Auth',
   reservationURL: 'http://localhost:8081/reservation',
+  authURL: 'http://localhost:8081/auth',
+  accommodationURL: 'http://localhost:8081/accommodation',
 }
 
 /*
