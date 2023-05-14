@@ -13,19 +13,6 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
-.p-component {
-  font-size: 1.6rem;
-}
-
-// footer {
-//   position: absolute;
-//   bottom: 0;
-// }
-
-.p-component {
-  font-size: 20px;
-}
-
 .error-message {
   color: var(--error);
   font-size: 20px;
@@ -80,3 +67,4 @@ body {
 .shrink:hover {
   transform: scale(0.9);
 }
+

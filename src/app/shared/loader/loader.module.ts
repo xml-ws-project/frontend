@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LoaderComponent } from './loader-component/loader.component';
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
+import { LoaderComponent } from './loader-component/loader.component'
 import {
   NgxUiLoaderConfig,
   NgxUiLoaderHttpModule,
   NgxUiLoaderModule,
   POSITION,
   SPINNER,
-} from 'ngx-ui-loader';
+} from 'ngx-ui-loader'
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsColor: '#03e9f4',
