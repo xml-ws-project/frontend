@@ -3,8 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  authURL: 'http://localhost:8081/auth',
+  accommodationURL: 'http://localhost:8081/accommodation'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,1 +1,82 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+html,
+body {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.p-component {
+  font-size: 1.6rem;
+}
+
+// footer {
+//   position: absolute;
+//   bottom: 0;
+// }
+
+.p-component {
+  font-size: 20px;
+}
+
+.error-message {
+  color: var(--error);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.input-error {
+  position: relative;
+  bottom: 2vmin;
+  color: var(--error);
+  font-size: 15px;
+  margin-top: 0;
+}
+
+.page {
+  height: 100%;
+  width: 100%;
+
+
+  &__hero {
+    height: 40%;
+    width: 100%;
+    background-image: url('./assets/icons/navbar/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center -300px;
+    border-top: 1px solid var(--pure-black);
+    border-bottom: 1px solid var(--pure-black);
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    background-color: var(--background);
+
+    &__search {
+      position: relative;
+      bottom: 20vmin;
+      width: 70%;
+      height: 35%;
+      margin: auto;
+      background-color: transparent;
+    }
+  }
+}
+
+.shrink {
+  transition: all 0.2s ease-in-out;
+}
+
+.shrink:hover {
+  transform: scale(0.9);
+}
