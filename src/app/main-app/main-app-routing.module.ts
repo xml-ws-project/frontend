@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component';
+import { ResultOverviewComponent } from '../accommodation/components/result-overview/result-overview.component';
 
 const routes: Routes = [
   {
@@ -8,6 +9,10 @@ const routes: Routes = [
     component: LandingPageComponent,
     title: 'VIMA Booking',
   },
+  {
+    path: 'result-overview',
+    component: ResultOverviewComponent
+  }
   // {
   //   path: '*',
   //   component: NotfoundPageComponent,

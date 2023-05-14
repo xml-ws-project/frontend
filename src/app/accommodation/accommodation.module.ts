@@ -10,12 +10,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+import { ResultOverviewComponent } from './components/result-overview/result-overview.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     LandingPageComponent,
     InfoCardComponent,
-    SearchComponent
+    SearchComponent,
+    ResultOverviewComponent
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
@@ -29,6 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatDatepickerModule,
     MatIconModule,
+    MatTableModule
   ]
 })
 export class AccommodationModule { }

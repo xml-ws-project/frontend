@@ -1,0 +1,59 @@
+@import url('../../../../colors.scss');
+
+.left-side {
+  float: left;
+  width: 60%;
+  min-height: 100vh;
+  padding: 5rem;
+
+}
+
+.right-side {
+  float: right;
+  width: 40%;
+  min-height: 100vh;
+  padding: 5rem;
+}
+
+.content-form {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  gap: 3rem;
+
+  &-header {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--fav-light);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 10%;
+    width: 100%;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    width: 100%;
+    font-size: 2rem;
+    color: var(--fav-light);
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 10rem;
+      align-items: center;
+      height: 10rem;
+      width: 100%;
+    }
+  }
+}
