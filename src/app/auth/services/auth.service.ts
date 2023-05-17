@@ -15,7 +15,7 @@ export class AuthService {
   user = new BehaviorSubject<User>(null as any)
   authURL = environment.authURL
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {}
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
 
   public register(data: RegisterDTO): Observable<string> {
     return this.http.post(`${this.authURL}/register`, data, { responseType: 'text' }).pipe(catchError(this.handleError))
@@ -35,7 +35,7 @@ export class AuthService {
   private handleLogin(token: string) {
     var decoded: any = jwtDecode(token)
     var id = decoded.sub.split(',')[0]
-    console.log(id)
+    console.log(token)
     var user = new User(id, decoded.role, token, decoded.exp)
     this.user.next(user)
     localStorage.setItem('user', JSON.stringify(user))

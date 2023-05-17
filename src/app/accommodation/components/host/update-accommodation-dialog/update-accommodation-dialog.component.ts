@@ -13,6 +13,9 @@ import { AccommdationService } from 'src/app/accommodation/service/accommdation.
 })
 export class UpdateAccommodationDialogComponent implements OnInit {
 
+  startDate: Date;
+  endDate: Date;
+
   constructor(public dialogRef: MatDialogRef<UpdateAccommodationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private accommodationService: AccommdationService,
@@ -29,14 +32,27 @@ export class UpdateAccommodationDialogComponent implements OnInit {
   }
 
   update() {
+    if (this.startDate != null || this.startDate != undefined) {
+      var tempDate = this.startDate.setHours(this.startDate.getHours() + 2);
+      this.updateRequest.start = this.startDate.toISOString();
+    } else {
+      this.updateRequest.start = null as any;
+    }
+    if (this.endDate != null || this.endDate != undefined) {
+      var tempDate = this.endDate.setHours(this.endDate.getHours() + 2);
+      this.updateRequest.end = this.endDate.toISOString();
+    } else {
+      this.updateRequest.end = null as any;
+    }
     this.accommodationService.update(this.updateRequest).subscribe(
       (response: any) => {
-
+        this.toastrService.success("Update passed successfully.")
       },
       (error: HttpErrorResponse) => {
         this.toastrService.error(error.message);
       }
     );
+    window.location.reload();
   }
 
 }

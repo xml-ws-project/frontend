@@ -40,11 +40,15 @@
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="addAccom()">
-              <mat-icon>add_box</mat-icon>
-              <span>Accommodation</span>
+            <button *ngIf="role == 'HOST'" mat-menu-item (click)="accomReview()">
+              <mat-icon>view_list</mat-icon>
+              <span>Accommodation review</span>
             </button>
-            <button mat-menu-item (click)="onRequests()" *ngIf="role !== 'ADMIN'">
+            <button *ngIf="role == 'HOST'" mat-menu-item (click)="addAccom()">
+              <mat-icon>add_box</mat-icon>
+              <span>Add accommodation</span>
+            </button>
+            <button *ngIf="role == 'HOST'" mat-menu-item (click)="onRequests()">
               <mat-icon>notification_important</mat-icon>
               <span>Requests</span>
             </button>

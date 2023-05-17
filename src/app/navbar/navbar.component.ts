@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) { }
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -91,5 +91,9 @@ export class NavbarComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe()
     }
+  }
+
+  accomReview() {
+    this.router.navigate(['/accommodations-overview'])
   }
 }

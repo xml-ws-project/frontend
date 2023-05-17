@@ -6,7 +6,7 @@ import { LoaderService } from '../shared/loader/service/loader.service'
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
-  constructor(private authService: AuthService, private loaderService: LoaderService) {}
+  constructor(private authService: AuthService, private loaderService: LoaderService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.loaderService.show()
@@ -18,7 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
         }
         const modifiedRequest = request.clone({
           setHeaders: {
-            Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${user._token}`,
           },
         })
         return next.handle(modifiedRequest).pipe(
