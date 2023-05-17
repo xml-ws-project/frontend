@@ -26,7 +26,7 @@ import { CreateSpecialPeriodDialogComponent } from './components/host/create-spe
     ResultOverviewComponent,
     AccommodationsOverviewComponent,
     UpdateAccommodationDialogComponent,
-    CreateSpecialPeriodDialogComponent
+    CreateSpecialPeriodDialogComponent,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

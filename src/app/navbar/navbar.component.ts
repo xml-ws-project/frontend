@@ -104,4 +104,8 @@ export class NavbarComponent implements OnInit {
   onProfile() {
     this.router.navigate(['/edit-profile'])
   }
+
+  accomReview() {
+    this.router.navigate(['/accommodations-overview'])
+  }
 }

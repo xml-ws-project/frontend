@@ -10,8 +10,8 @@
       <mat-form-field style="height: 1rem; width: 26rem; font-size: 1.6rem; margin-bottom: 4rem;" appearance="fill" class="content-picker">
         <mat-label>Enter a desired period</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate [(ngModel)]="updateRequest.start" placeholder="Start date" >
-          <input matEndDate [(ngModel)]="updateRequest.end" placeholder="End date">
+          <input matStartDate [(ngModel)]="startDate" placeholder="Start date" >
+          <input matEndDate [(ngModel)]="endDate" placeholder="End date">
         </mat-date-range-input>
         <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -28,6 +28,6 @@
     </div>
   </div>
   <div class="content-button">
-    <button mat-raised-button mat-dialog-close style="height: 4rem; width: 12rem; font-size: 1.6rem;" (click)="update()" color="primary">Update</button>
+    <button mat-raised-button mat-dialog-close style="height: 4rem; width: 12rem; font-size: 1.6rem; background-color: #5E8B7E; color: white; cursor: pointer;" (click)="update()">Update</button>
   </div>
 </div>
