@@ -3,6 +3,11 @@ import { MatTableDataSource } from '@angular/material/table'
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core'
 import { RequestResponse } from '../../interface/RequestResponse'
 import { RequestService } from '../../services/request.service'
+import { AuthService } from 'src/app/auth/services/auth.service'
+import { Subscription } from 'rxjs'
+import { HostResponse } from '../../interface/HostResponse'
+import { ToastrService } from 'ngx-toastr'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-table',
@@ -10,11 +15,15 @@ import { RequestService } from '../../services/request.service'
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol']
+  displayedColumns: string[] = ['id', 'start', 'end', 'status', 'accomID', 'numOfGuests', 'options']
   private _dataSource = new MatTableDataSource<RequestResponse>()
-  private response
+  private userSub: Subscription | undefined
+  private userId
+  public userRole: string
+  public showTable: boolean = false
+  private requestDTO
 
-  constructor(private reqService: RequestService) {}
+  constructor(private reqService: RequestService, private authService: AuthService, private toastr: ToastrService, private router: Router) {}
 
   public get dataSource() {
     return this._dataSource
@@ -25,13 +34,24 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    const dto = {
-      id: '9cb78cb8-f25c-11ed-a05b-0242ac120003',
-      role: 'HOST',
+    this.userSub = this.authService.user.subscribe((user) => {
+      this.userId = user.id
+      this.userRole = user.role
+    })
+
+    this.requestDTO = {
+      id: this.userId,
+      role: this.userRole,
     }
 
-    this.reqService.findAllByUser(dto).subscribe((response) => {
-      console.log(response)
+    this.reqService.findAllByUser(this.requestDTO).subscribe((response) => {
+      this._dataSource = new MatTableDataSource(response)
+      if (this._dataSource.data.length === 0) {
+        this.showTable = false
+        return
+      }
+
+      this.showTable = true
     })
   }
 
@@ -40,11 +60,29 @@ export class TableComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator
   }
-}
 
-export interface PeriodicElement {
-  name: string
-  position: number
-  weight: number
-  symbol: string
+  onHostResponse(resId, accept) {
+    const dto = {
+      id: resId,
+      accept: accept,
+    }
+
+    this.reqService.hostResponse(dto).subscribe((response) => {
+      accept ? this.toastr.success(response) : this.toastr.error(response)
+      this.refreshData()
+    })
+  }
+
+  onGuestCancelation(resId) {
+    this.reqService.guestResponse(resId).subscribe((response) => {
+      this.toastr.info(response)
+      this.refreshData()
+    })
+  }
+
+  refreshData() {
+    this.reqService.findAllByUser(this.requestDTO).subscribe((response) => {
+      this._dataSource = response
+    })
+  }
 }

@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -30,7 +30,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
       if (user == null) return
-      this.email = user.email
       this.role = user.role
     })
     this.subscription = timer(0, 1000)
@@ -60,7 +59,7 @@ export class NavbarComponent implements OnInit {
   onLogout() {
     this.authService.logout()
     this.isLogged = !this.isLogged
-    window.location.reload()
+    this.router.navigate([''])
   }
 
   onRegister() {

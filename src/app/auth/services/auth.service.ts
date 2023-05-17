@@ -15,12 +15,10 @@ export class AuthService {
   user = new BehaviorSubject<User>(null as any)
   authURL = environment.authURL
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {}
 
   public register(data: RegisterDTO): Observable<string> {
-    return this.http
-      .post(`${this.authURL}/register`, data, { responseType: 'text' })
-      .pipe(catchError(this.handleError))
+    return this.http.post(`${this.authURL}/register`, data, { responseType: 'text' }).pipe(catchError(this.handleError))
   }
 
   public login(data: LoginDTO): Observable<string> {
@@ -36,12 +34,12 @@ export class AuthService {
 
   private handleLogin(token: string) {
     var decoded: any = jwtDecode(token)
-    var expiresInSec = decoded.exp * 60000
-    var expireDate = new Date(new Date().getTime() + expiresInSec)
-    var user = new User(decoded.id, decoded.email, decoded.role, token, expireDate)
+    var id = decoded.sub.split(',')[0]
+    console.log(id)
+    var user = new User(id, decoded.role, token, decoded.exp)
     this.user.next(user)
     localStorage.setItem('user', JSON.stringify(user))
-    this.autoLogout(expiresInSec)
+    this.autoLogout(decoded.exp)
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -54,24 +52,15 @@ export class AuthService {
   public autoLogin() {
     const userData: {
       id: string
-      email: string
       role: string
       _token: string
-      _tokenExpirationDate: string
+      _tokenExpirationDate: number
     } = JSON.parse(localStorage.getItem('user') || 'null')
 
     if (!userData) {
       return
     }
-
-    const loadedUser = new User(
-      userData.id,
-      userData.email,
-      userData.role,
-      userData._token,
-      new Date(userData._tokenExpirationDate),
-    )
-
+    const loadedUser = new User(userData.id, userData.role, userData._token, new Date(userData._tokenExpirationDate * 1000))
     if (loadedUser.token) {
       this.user.next(loadedUser)
       this.autoLogout(new Date(userData._tokenExpirationDate).getTime() - new Date().getTime())

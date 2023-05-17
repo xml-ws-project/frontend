@@ -11,11 +11,7 @@
   <div class="navbar__main">
     <div class="navbar__main__container">
       <div class="navbar__main__container__logo shrink" (click)="onHome()">
-        <img
-          class="navbar__main__container__logo__img"
-          src="../../assets/icons/navbar/logo.png"
-          alt="LOGO"
-        />
+        <img class="navbar__main__container__logo__img" src="../../assets/icons/navbar/logo.png" alt="LOGO" />
         <div class="navbar__main__container__logo__name">VIMA Booking</div>
       </div>
       <span class="spacer"></span>
@@ -23,15 +19,9 @@
       <div class="navbar__main__container__links">
         <div class="navbar__main__container__links__item shrink" *ngIf="role === 'ADMIN'">
           <img src="../../assets/icons/navbar/admin/new-flight.png" />
-          <div class="navbar__main__container__links__item__text" (click)="onNewFlight()">
-            New Flight
-          </div>
+          <div class="navbar__main__container__links__item__text" (click)="onNewFlight()">New Flight</div>
         </div>
-        <div
-          class="navbar__main__container__links__item shrink"
-          (click)="onRegister()"
-          *ngIf="!isLogged"
-        >
+        <div class="navbar__main__container__links__item shrink" (click)="onRegister()" *ngIf="!isLogged">
           <img src="../../assets/icons/navbar/register.png" />
           <div class="navbar__main__container__links__item__text">Register</div>
         </div>
@@ -41,20 +31,12 @@
             {{ email }}
           </div>
         </div>
-        <div
-          class="navbar__main__container__links__item shrink"
-          (click)="onLogin()"
-          *ngIf="!isLogged"
-        >
+        <div class="navbar__main__container__links__item shrink" (click)="onLogin()" *ngIf="!isLogged">
           <img src="../../assets/icons/navbar/login.png" />
           <div class="navbar__main__container__links__item__text">Login</div>
         </div>
         <div class="navbar__main__container__links__item shrink" *ngIf="isLogged">
-          <button
-            mat-icon-button
-            aria-label="Example icon-button with a menu"
-            [matMenuTriggerFor]="menu"
-          >
+          <button mat-icon-button aria-label="Example icon-button with a menu" [matMenuTriggerFor]="menu">
             <mat-icon>more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
@@ -79,24 +61,14 @@
     <div class="burger-menu-toggle__links">
       <div class="burger-menu-toggle__links__item" (click)="onHome()">00 Home</div>
       <div class="burger-menu-toggle__links__item" *ngIf="isLogged">01 Profile</div>
-      <div class="burger-menu-toggle__links__item" *ngIf="isLogged" (click)="onRequests()">
-        02 Tickets
-      </div>
+      <div class="burger-menu-toggle__links__item" *ngIf="isLogged" (click)="onRequests()">02 Tickets</div>
       <div class="burger-menu-toggle__links__item" (click)="onRegister()">00 Home</div>
-      <div class="burger-menu-toggle__links__item" *ngIf="role === 'ADMIN'" (click)="onNewFlight()">
-        01 New Flight
-      </div>
+      <div class="burger-menu-toggle__links__item" *ngIf="role === 'ADMIN'" (click)="onNewFlight()">01 New Flight</div>
       <div class="burger-menu-toggle__links__item">01 About Us</div>
       <div class="burger-menu-toggle__links__item" *ngIf="isLogged">02 Profile</div>
-      <div class="burger-menu-toggle__links__item" (click)="onRegister()" *ngIf="!isLogged">
-        02 Register
-      </div>
-      <div class="burger-menu-toggle__links__item" (click)="onLogin()" *ngIf="!isLogged">
-        03 Login
-      </div>
-      <div class="burger-menu-toggle__links__item" (click)="onLogout()" *ngIf="isLogged">
-        04 Logout
-      </div>
+      <div class="burger-menu-toggle__links__item" (click)="onRegister()" *ngIf="!isLogged">02 Register</div>
+      <div class="burger-menu-toggle__links__item" (click)="onLogin()" *ngIf="!isLogged">03 Login</div>
+      <div class="burger-menu-toggle__links__item" (click)="onLogout()" *ngIf="isLogged">04 Logout</div>
     </div>
   </div>
 </div>

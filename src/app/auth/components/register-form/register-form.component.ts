@@ -16,25 +16,23 @@ export class RegisterFormComponent implements OnInit {
   public errorMessage: string
   public form: FormGroup
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    private toastr: CustomToastrService,
-  ) {}
+  constructor(private router: Router, private authService: AuthService, private toastr: CustomToastrService) {}
 
   ngOnInit() {
     this.form = new FormGroup({
       firstName: new FormControl(undefined, Validators.required),
       lastName: new FormControl('', Validators.required),
-      jmbg: new FormControl(undefined, Validators.required),
-      isMale: new FormControl(undefined, Validators.required),
+      location: new FormControl(undefined, Validators.required),
       phoneNumber: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl(''),
       password: new FormControl('', Validators.required),
-      dateOfBirth: new FormControl('', Validators.required),
+      role: new FormControl(undefined, Validators.required),
     })
   }
   onFormSubmit() {
+    this.form.value.role ? (this.form.value.role = 'HOST') : (this.form.value.role = 'GUEST')
+    this.form.value.username = this.form.value.email
     this.authService.register(this.form.value).subscribe(
       (response: string) => {
         this.toastr.success(null, response, ToasterPosition.topCenter)

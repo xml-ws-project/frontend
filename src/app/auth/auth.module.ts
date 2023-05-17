@@ -15,13 +15,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { LoginPageComponent } from './components/login-page/login-page.component'
 
 @NgModule({
-  declarations: [
-    HomeButtonComponent,
-    LoginPageComponent,
-    LoginFormComponent,
-    RegisterPageComponent,
-    RegisterFormComponent,
-  ],
+  declarations: [HomeButtonComponent, LoginPageComponent, LoginFormComponent, RegisterPageComponent, RegisterFormComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,
