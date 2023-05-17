@@ -25,7 +25,7 @@
           <img src="../../assets/icons/navbar/register.png" />
           <div class="navbar__main__container__links__item__text">Register</div>
         </div>
-        <div class="navbar__main__container__links__item" *ngIf="isLogged">
+        <div class="navbar__main__container__links__item" *ngIf="isLogged" (click)="onProfile()">
           <img src="../../assets/icons/navbar/profile.png" />
           <div class="navbar__main__container__links__item__text">
             {{ email }}
@@ -51,6 +51,10 @@
             <button mat-menu-item (click)="onLogout()" class="logout">
               <mat-icon>logout</mat-icon>
               <span>Logout</span>
+            </button>
+            <button mat-menu-item (click)="onDelete()" class="logout">
+              <mat-icon>delete_forever</mat-icon>
+              <span>Delete</span>
             </button>
           </mat-menu>
         </div>

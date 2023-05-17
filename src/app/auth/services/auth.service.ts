@@ -8,6 +8,8 @@ import { LoginDTO } from '../interface/LoginDTO'
 import jwtDecode from 'jwt-decode'
 import { ToastrService } from 'ngx-toastr'
 import { RegisterDTO } from '../interface/RegisterDTO'
+import { DeleteUserDTO } from '../interface/DeleteUserDTO'
+import { HttpHeaders } from '@angular/common/http'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -85,5 +87,19 @@ export class AuthService {
 
   public isLogged() {
     return !!this.user.value
+  }
+
+  public deleteUser(): Observable<String> {
+    var user = localStorage.getItem('user')
+    var json = JSON.parse(user)
+    var decoded = jwtDecode(json._token)
+    var sub = decoded['sub']
+    var username = sub.split(',')[1].trim()
+
+    const dto: DeleteUserDTO = {
+      username: username,
+    }
+
+    return this.http.post(`${this.authURL}/dele`, dto, { responseType: 'text' })
   }
 }

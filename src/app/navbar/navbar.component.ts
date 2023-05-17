@@ -3,6 +3,7 @@ import { MatMenuTrigger } from '@angular/material/menu'
 import { Router } from '@angular/router'
 import { map, share, Subscription, timer } from 'rxjs'
 import { AuthService } from '../auth/services/auth.service'
+import { ToastrService } from 'ngx-toastr'
 
 @Component({
   selector: 'app-navbar',
@@ -19,7 +20,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, private toastr: ToastrService) {}
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -91,5 +92,16 @@ export class NavbarComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe()
     }
+  }
+
+  onDelete() {
+    this.authService.deleteUser().subscribe((response) => {
+      this.onLogout()
+      this.toastr.success('You have successfully deleted your account.', 'Goodbye!')
+    })
+  }
+
+  onProfile() {
+    this.router.navigate(['/edit-profile'])
   }
 }
