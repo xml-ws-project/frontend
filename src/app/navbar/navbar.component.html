@@ -48,17 +48,17 @@
               <mat-icon>add_box</mat-icon>
               <span>Add accommodation</span>
             </button>
-            <button *ngIf="role == 'HOST'" mat-menu-item (click)="onRequests()">
+            <button mat-menu-item (click)="onRequests()">
               <mat-icon>notification_important</mat-icon>
               <span>Requests</span>
-            </button>
-            <button mat-menu-item (click)="onLogout()" class="logout">
-              <mat-icon>logout</mat-icon>
-              <span>Logout</span>
             </button>
             <button mat-menu-item (click)="onDelete()" class="logout">
               <mat-icon>delete_forever</mat-icon>
               <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="onLogout()" class="logout">
+              <mat-icon>logout</mat-icon>
+              <span>Logout</span>
             </button>
           </mat-menu>
         </div>
