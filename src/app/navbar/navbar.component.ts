@@ -4,6 +4,7 @@ import { Router } from '@angular/router'
 import { map, share, Subscription, timer } from 'rxjs'
 import { AuthService } from '../auth/services/auth.service'
 import { ToastrService } from 'ngx-toastr'
+import { HttpErrorResponse } from '@angular/common/http'
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router, private authService: AuthService, private toastr: ToastrService) {}
+  constructor(private router: Router, private authService: AuthService, private toastr: ToastrService) { }
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -95,10 +96,14 @@ export class NavbarComponent implements OnInit {
   }
 
   onDelete() {
-    this.authService.deleteUser().subscribe((response) => {
-      this.onLogout()
-      this.toastr.success('You have successfully deleted your account.', 'Goodbye!')
-    })
+    this.authService.deleteUser().subscribe(
+      (response: string) => {
+        this.onLogout();
+      },
+      (error: HttpErrorResponse) => {
+        this.toastr.error(error.message);
+      }
+    )
   }
 
   onProfile() {
