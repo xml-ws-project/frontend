@@ -101,7 +101,6 @@ export class ResultOverviewComponent implements OnInit {
       accomId: this.selectedAccommodation.id,
       userId: this.userId,
     }
-    console.log(this.reservationRequest)
     this.reservationService.create(this.reservationRequest).subscribe(
       (response: ReservationResponse) => {
         this.toastrService.success("Your reservation is successfully passed to host.")

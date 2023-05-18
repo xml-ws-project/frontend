@@ -148,10 +148,10 @@
           <div class="add-accom__content__form__row__item">
             <mat-form-field appearance="fill">
               <mat-label>Payment Type</mat-label>
-              <mat-select formControllName="paymentType" required>
+              <mat-select [formControl]="paymentType" required>
                 <mat-option>--</mat-option>
-                <mat-option *ngFor="let type of paymentTypes" [value]="type.value">
-                  {{ type.name }}
+                <mat-option *ngFor="let type of paymentTypes" [value]="type">
+                  {{ type }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -160,8 +160,8 @@
           <div class="add-accom__content__form__row__item">
             <mat-form-field appearance="fill">
               <mat-label>Additional Benefits</mat-label>
-              <mat-select formControllName="benefitsIds" multiple>
-                <mat-option *ngFor="let item of benefits" [value]="item.value">{{
+              <mat-select [formControl]="benefitsIds" multiple>
+                <mat-option *ngFor="let item of benefits" [value]="item.id">{{
                   item.name
                 }}</mat-option>
               </mat-select>
