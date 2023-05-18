@@ -54,7 +54,10 @@ export class SearchComponent implements OnInit {
       (response: SearchResponse[]) => {
         console.log(response);
         var searchResult: SearchResult = new SearchResult(
-          response
+          response,
+          this.searchRequest.guests,
+          this.searchRequest.start,
+          this.searchRequest.end
         )
         this.accommodationService.changeData(searchResult, true);
         this.router.navigate(['/result-overview'])

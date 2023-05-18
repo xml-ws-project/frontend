@@ -11,6 +11,7 @@ import { SearchResult } from '../components/class/SearchResult';
 import { browserRefresh } from 'src/app/app.component';
 import { SpecialPeriodRequest } from '../interface/SpecialPeriodRequest';
 import { SpecialPeriodResponse } from '../interface/SpecialPeriodResponse';
+import { AdditionalBenefitResponse } from '../interface/AdditionalBenefitResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +64,9 @@ export class AccommdationService {
 
   public createSpecialPeriod(request: SpecialPeriodRequest): Observable<SpecialPeriodResponse> {
     return this.http.post<SpecialPeriodResponse>(`${this.apiServiceUrl}/special-period`, request);
+  }
+
+  public findAllBenefits(): Observable<AdditionalBenefitResponse[]> {
+    return this.http.get<AdditionalBenefitResponse[]>(`${this.apiServiceUrl}/all-benefits`);
   }
 }

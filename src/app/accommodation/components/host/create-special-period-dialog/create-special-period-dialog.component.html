@@ -10,8 +10,8 @@
       <mat-form-field style="height: 1rem; width: 26rem; font-size: 1.6rem; margin-bottom: 4rem;" appearance="fill" class="content-picker">
         <mat-label>Enter a desired period</mat-label>
         <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate [(ngModel)]="specialPeriodRequest.specialPeriodStart" placeholder="Start date" >
-          <input matEndDate [(ngModel)]="specialPeriodRequest.specialPeriodEnd" placeholder="End date">
+          <input matStartDate [(ngModel)]="startDate" placeholder="Start date" >
+          <input matEndDate [(ngModel)]="endDate" placeholder="End date">
         </mat-date-range-input>
         <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -34,8 +34,8 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label style="font-size: 1.8rem;">Period type</mat-label>
-        <mat-select style="height: 1rem;">
-          <mat-option *ngFor="let type of periodTypes" [value]="specialPeriodRequest.periodType">
+        <mat-select style="height: 1rem;" [(ngModel)]="specialPeriodRequest.periodType">
+          <mat-option *ngFor="let type of periodTypes" [value]="type">
             {{type}}
           </mat-option>
         </mat-select>
@@ -43,6 +43,6 @@
     </div>
   </div>
   <div class="content-button">
-    <button mat-raised-button (click)="createSpecialPeriod()" mat-dialog-close style="height: 4rem; width: 15rem; font-size: 1.6rem;" color="primary">Update</button>
+    <button mat-raised-button (click)="createSpecialPeriod()" mat-dialog-close style="height: 4rem; width: 15rem; font-size: 1.6rem; background-color: #5E8B7E; color: white; cursor: pointer;">Update</button>
   </div>
 </div>

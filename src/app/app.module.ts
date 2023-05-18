@@ -44,11 +44,7 @@ import { MatSelectModule } from '@angular/material/select'
       preventDuplicates: true,
     }),
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    CustomToastrService,
-    LoaderService,
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, CustomToastrService, LoaderService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

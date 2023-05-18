@@ -12,16 +12,11 @@ import { HomeButtonComponent } from '../shared/components/home-button/home-butto
 import { LoginFormComponent } from './components/login-form/login-form.component'
 import { RegisterFormComponent } from './components/register-form/register-form.component'
 import { RegisterPageComponent } from './components/register-page/register-page.component'
-import { LoginPageComponent } from './components/login-page/login-page.component'
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { EditPageComponent } from './components/edit-page/edit-page/edit-page.component'
 
 @NgModule({
-  declarations: [
-    HomeButtonComponent,
-    LoginPageComponent,
-    LoginFormComponent,
-    RegisterPageComponent,
-    RegisterFormComponent,
-  ],
+  declarations: [HomeButtonComponent, LoginPageComponent, LoginFormComponent, RegisterPageComponent, RegisterFormComponent, EditPageComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,

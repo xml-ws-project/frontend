@@ -16,10 +16,10 @@ export class AppComponent implements OnInit {
   private refreshSub: Subscription
   private userSub: Subscription | undefined
 
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    // this.authService.autoLogin()
+    this.authService.autoLogin()
     this.userSub = this.authService.user.subscribe((user) => {
       this.isLogged = !!user
     })

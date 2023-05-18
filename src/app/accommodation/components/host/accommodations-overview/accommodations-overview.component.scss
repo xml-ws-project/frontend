@@ -32,3 +32,16 @@
     height: 5%;
   }
 }
+
+.mat-cell {
+  color: white;
+}
+
+.mat-header-cell {
+  color: white;
+}
+
+.mat-row:hover {
+  background-color: #AFE1AF;
+  cursor: pointer;
+}

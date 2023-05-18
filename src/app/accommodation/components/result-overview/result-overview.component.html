@@ -1,9 +1,8 @@
 <div style="background-color: whitesmoke;">
   <div class="left-side">
-    <table style="height: 70rem;
-    width: 100rem;
+    <table style="width: 100rem;
     font-size: 1.8rem;
-    background-color: whitesmoke;
+    background-color: #5E8B7E;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     " mat-table [dataSource]="dataSource">
 
@@ -48,23 +47,40 @@
         </div>
         <div class="content-form-info">
           <div class="content-form-info-row">
-            <div>
-              Regular price: {{selectedAccommodation.regularPrice}}
+            <div class="content-form-info-row-b">
+              Regular price:
             </div>
             <div>
-              Payment type:  {{selectedAccommodation.paymentType}}
+              {{selectedAccommodation.regularPrice}}
             </div>
-          </div>
-          <div class="content-form-info-row">
-            <div>
-              Min. number of guests:  {{selectedAccommodation.minGuests}}
+            <div class="content-form-info-row-b">
+              Payment type:
             </div>
             <div>
-              Max. number of guests:  {{selectedAccommodation.maxGuests}}
+              {{selectedAccommodation.paymentType}}
             </div>
           </div>
           <div class="content-form-info-row">
-            Additional benefits: Wi-fi, Balcony, Kitchen
+            <div class="content-form-info-row-b">
+              Min. number of guests:
+            </div>
+            <div>
+              {{selectedAccommodation.minGuests}}
+            </div>
+            <div class="content-form-info-row-b">
+              Max. number of guests:
+            </div>
+            <div>
+              {{selectedAccommodation.maxGuests}}
+            </div>
+          </div>
+          <div class="content-form-info-row">
+            <div class="content-form-info-row-b">
+              Additional benefits:
+            </div>
+            <div *ngFor="let item of selectedAccommodation.benefits">
+              {{item.name}}
+            </div>
           </div>
         </div>
         <mat-card style="width: 60rem; height: 30rem; background-color: whitesmoke;">
@@ -94,7 +110,7 @@
             </div>
           </div>
         </mat-card>
-        <button mat-raised-button style="height: 3.5rem; width: 16rem; font-size: 1.6rem;" color="primary">Reserve</button>
+        <button mat-raised-button style="height: 3.5rem; width: 16rem; font-size: 1.6rem; background-color: #5E8B7E; color: white; cursor: pointer;" (click)="reserve()">Reserve</button>
       </div>
     </mat-card>
   </div>

@@ -27,6 +27,11 @@ body {
   margin-top: 0;
 }
 
+tr.mat-footer-row,
+tr.mat-row {
+  min-height: 20px !important;
+}
+
 .page {
   height: 100%;
   width: 100%;
@@ -67,4 +72,3 @@ body {
 .shrink:hover {
   transform: scale(0.9);
 }
-

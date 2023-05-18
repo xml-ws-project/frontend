@@ -8,23 +8,13 @@
     </div>
     <div *ngIf="!username.valid && username.touched" class="input-error">Please enter valid username.</div>
     <div class="user-box">
-      <input
-        id="pass"
-        name="password"
-        type="password"
-        #password="ngModel"
-        matInput
-        required
-        ngModel
-      />
+      <input id="pass" name="password" type="password" #password="ngModel" matInput required ngModel />
       <label>Password</label>
-      <div *ngIf="!password.valid && password.touched" class="input-error">
-        Password is required.
-      </div>
+      <div *ngIf="!password.valid && password.touched" class="input-error">Password is required.</div>
     </div>
     <div *ngIf="showError" class="error-message">{{ errorMessage }}</div>
     <div class="options">
-      <mat-checkbox [(ngModel)]="defaultRemember" name="rememberMe">Remember me</mat-checkbox>
+      <mat-checkbox [checked]="defaultValue" name="rememberMe">Remember me</mat-checkbox>
       <span class="spacer"></span>
       <a class="forgot">Forgot password?</a>
     </div>

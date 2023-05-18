@@ -1,6 +1,6 @@
 export interface UpdateAccommodationRequest {
   accommodationId: string,
-  start: Date,
-  end: Date,
+  start: string,
+  end: string,
   price: number
 }

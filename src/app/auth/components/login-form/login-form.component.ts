@@ -10,15 +10,11 @@ import { AuthService } from '../../services/auth.service'
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
-  public defaultRemember = true
+  public defaultValue = true
   public showError: boolean = false
   public errorMessage: string = ''
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private toastr: ToastrService,
-  ) {}
+  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {}
 
   onHome() {
     this.router.navigate([''])

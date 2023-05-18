@@ -6,6 +6,7 @@ import { LoginPageComponent } from './auth/components/login-page/login-page.comp
 import { RegisterPageComponent } from './auth/components/register-page/register-page.component'
 import { LoginGuard } from './auth/guard/login.guard'
 import { LogoutGuard } from './auth/guard/logout.guard'
+import { EditPageComponent } from './auth/components/edit-page/edit-page/edit-page.component'
 
 const routes: Routes = [
   {
@@ -35,6 +36,12 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '/error/notfound',
+  },
+  {
+    path: 'edit',
+    component: EditPageComponent,
+    title: ' VIMA Airlines | eidt user',
+    canActivate: [LogoutGuard],
   },
 ]
 

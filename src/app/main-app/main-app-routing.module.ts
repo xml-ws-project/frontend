@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core'
 import { NotfoundPageComponent } from '../shared/errors/components/notfound-page/notfound-page.component'
 import { RequestsPageComponent } from '../reservation-requests/components/requests-page/requests-page.component'
 import { AddAccomComponent } from '../add-accom/add-accom.component'
-import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component';
-import { ResultOverviewComponent } from '../accommodation/components/result-overview/result-overview.component';
+import { LandingPageComponent } from '../accommodation/components/landing-page/landing-page.component'
+import { ResultOverviewComponent } from '../accommodation/components/result-overview/result-overview.component'
 import { AccommodationsOverviewComponent } from '../accommodation/components/host/accommodations-overview/accommodations-overview.component'
+import { EditPageComponent } from '../auth/components/edit-page/edit-page/edit-page.component'
 
 const routes: Routes = [
   {
@@ -15,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'result-overview',
-    component: ResultOverviewComponent
+    component: ResultOverviewComponent,
   },
   {
     path: '*',
@@ -32,15 +33,18 @@ const routes: Routes = [
   },
   {
     path: 'accommodations-overview',
-    component: AccommodationsOverviewComponent
-  }
-];
-
+    component: AccommodationsOverviewComponent,
+  },
+  {
+    path: 'edit-profile',
+    component: EditPageComponent,
+    title: 'VIMA Booking | Edit profile',
+  },
+]
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-
-export class MainAppRoutingModule { }
+export class MainAppRoutingModule {}
