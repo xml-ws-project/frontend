@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs'
+import { BehaviorSubject, catchError, Observable, PartialObserver, tap, throwError } from 'rxjs'
 import { environment } from 'src/environments/environment'
 import { User } from '../model/user.module'
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr'
 import { RegisterDTO } from '../interface/RegisterDTO'
 import { DeleteUserDTO } from '../interface/DeleteUserDTO'
 import { HttpHeaders } from '@angular/common/http'
+import { EditUserDTO } from '../interface/EditUserDTO'
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -17,7 +18,7 @@ export class AuthService {
   user = new BehaviorSubject<User>(null as any)
   authURL = environment.authURL
 
-  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {}
 
   public register(data: RegisterDTO): Observable<string> {
     return this.http.post(`${this.authURL}/register`, data, { responseType: 'text' }).pipe(catchError(this.handleError))
@@ -90,16 +91,24 @@ export class AuthService {
   }
 
   public deleteUser(): Observable<String> {
-    var user = localStorage.getItem('user')
-    var json = JSON.parse(user)
-    var decoded = jwtDecode(json._token)
-    var sub = decoded['sub']
-    var username = sub.split(',')[1].trim()
+    const username = this.getUsername()
 
     const dto: DeleteUserDTO = {
       username: username,
     }
 
     return this.http.post(`${this.authURL}/dele`, dto, { responseType: 'text' })
+  }
+
+  public editUser(dto: DeleteUserDTO): Observable<String> {
+    return this.http.patch(`${this.authURL}/edit`, dto, { responseType: 'text' })
+  }
+
+  public getUsername() {
+    var user = localStorage.getItem('user')
+    var json = JSON.parse(user)
+    var decoded = jwtDecode(json._token)
+    var sub = decoded['sub']
+    return sub.split(',')[1].trim()
   }
 }

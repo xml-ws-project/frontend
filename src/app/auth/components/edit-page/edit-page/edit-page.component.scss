@@ -1,0 +1,230 @@
+@import url('../../../../../colors.scss');
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.register {
+  position: fixed;
+  width: 900px;
+  height: 600px;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--fav-dark);
+  border-radius: 10px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+
+  &__title {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: var(--pure-white);
+    text-transform: uppercase;
+  }
+
+  &__form {
+    width: 100%;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+
+    &__row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 50px;
+
+      &__item {
+        position: relative;
+        margin-bottom: 10px;
+        width: 330px;
+
+        input {
+          width: 100%;
+          padding: 10px 0;
+          font-size: 18px;
+          color: var(--pure-white);
+          margin-bottom: 30px;
+          border: none;
+          border-bottom: 1px solid var(--pure-white);
+          outline: none;
+          background: transparent;
+          z-index: 100;
+          cursor: pointer;
+        }
+
+        label {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 5px 0;
+          font-size: 18px;
+          color: #fff;
+          pointer-events: none;
+          transition: 0.5s;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+          top: -20px;
+          left: 0;
+          color: var(--fav-light);
+          font-size: 15px;
+        }
+      }
+
+      &__item--datepicker {
+        width: 330px;
+
+        input {
+          cursor: default;
+          pointer-events: none !important;
+        }
+      }
+
+      &__item--gender {
+        width: 330px;
+        display: flex;
+
+        &__name {
+          color: var(--pure-white);
+          width: 50%;
+          font-size: 19px;
+        }
+
+        label {
+          color: var(--pure-white);
+          font-size: 17px;
+          width: 40%;
+          padding-left: 18px;
+          color: var(--pure-white);
+        }
+      }
+    }
+
+    &__submit {
+      position: fixed;
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      top: 85%;
+
+      button {
+        width: 330px;
+        height: 40px;
+        color: var(--fav-dark);
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-right: 50px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 57rem) {
+  .register {
+    position: fixed;
+    width: 520px;
+    height: 850px;
+    top: 52%;
+    box-sizing: border-box;
+
+    &__title {
+      text-align: center;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 25px;
+    }
+
+    &__form {
+      padding-top: 15px;
+
+      &__row {
+        padding: 0;
+
+        &__item {
+          margin-bottom: 10px;
+
+          input {
+            padding: 10px 0;
+            font-size: 13px;
+            margin-bottom: 25px;
+          }
+
+          label {
+            padding: 5px 0;
+            font-size: 15px;
+          }
+
+          input:focus ~ label,
+          input:valid ~ label {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .register__form__row {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    &__item--datepicker {
+      margin-bottom: 25px;
+    }
+  }
+
+  .register__form__submit {
+    position: relative;
+    margin-top: 25px;
+    justify-content: center;
+
+    button {
+      margin: 0;
+    }
+  }
+}
+
+.date-error {
+  margin-top: 30px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--pure-white) !important;
+}
+
+::ng-deep .mat-form-field {
+  width: 100% !important;
+  border: 1px solid var(--pure-white);
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding: 7px !important;
+}
+
+::ng-deep .mat-datepicker-toggle {
+  color: var(--pure-white) !important;
+}
+
+::ng-deep .mat-form-field input {
+  color: var(--pure-white) !important;
+}
+
+::ng-deep .mat-form-field-label {
+  font-size: 19px !important;
+  color: var(--pure-white) !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  display: none !important;
+  color: var(--pure-white);
+}

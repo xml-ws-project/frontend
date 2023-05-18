@@ -1,1 +1,38 @@
-<p>edit-page works!</p>
+<div class="register">
+  <div class="register__title">Register</div>
+  <form (submit)="onFormSubmit()" class="register__form">
+    <div class="register__form__row">
+      <div class="register__form__row__item">
+        <input [(ngModel)]="firstName" type="text" matInput name="name" />
+        <label>First Name</label>
+      </div>
+      <div class="register__form__row__item">
+        <input [(ngModel)]="lastName" type="text" matInput name="lname" />
+        <label>Last Name</label>
+      </div>
+    </div>
+    <div class="register__form__row">
+      <div class="register__form__row__item">
+        <input [(ngModel)]="location" type="text" matInput name="loc" />
+        <label>Address</label>
+      </div>
+      <div class="register__form__row__item">
+        <input [(ngModel)]="phoneNumber" type="text" matInput name="pn" />
+        <label>Phone Number</label>
+      </div>
+    </div>
+    <div class="register__form__row">
+      <div class="register__form__row__item">
+        <input [(ngModel)]="email" type="text" email name="email" />
+        <label>Email</label>
+      </div>
+      <div class="register__form__row__item">
+        <input [(ngModel)]="password" type="password" matInput name="pass" />
+        <label>Password</label>
+      </div>
+    </div>
+    <div class="register__form__submit">
+      <button type="submit" id="submit">Submit</button>
+    </div>
+  </form>
+</div>
