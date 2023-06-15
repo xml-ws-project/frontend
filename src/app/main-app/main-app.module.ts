@@ -7,9 +7,10 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { NavbarComponent } from '../navbar/navbar.component'
-import { AccommodationModule } from '../accommodation/accommodation.module';
+import { AccommodationModule } from '../accommodation/accommodation.module'
 import { ReservationRequestsModule } from '../reservation-requests/reservation-requests.module'
 import { RequestService } from '../reservation-requests/services/request.service'
+import { FlightsModule } from '../flights/flights.module'
 
 @NgModule({
   declarations: [MainAppComponent, NavbarComponent],
@@ -22,8 +23,9 @@ import { RequestService } from '../reservation-requests/services/request.service
     MatAutocompleteModule,
     AccommodationModule,
     ReservationRequestsModule,
+    FlightsModule,
   ],
   exports: [MatMenuModule],
   providers: [RequestService],
 })
-export class MainAppModule { }
+export class MainAppModule {}

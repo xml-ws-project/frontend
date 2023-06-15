@@ -38,7 +38,6 @@ export class AuthService {
   private handleLogin(token: string) {
     var decoded: any = jwtDecode(token)
     var id = decoded.sub.split(',')[0]
-    console.log(token)
     var user = new User(id, decoded.role, token, decoded.exp)
     this.user.next(user)
     localStorage.setItem('user', JSON.stringify(user))
@@ -66,7 +65,7 @@ export class AuthService {
     const loadedUser = new User(userData.id, userData.role, userData._token, new Date(userData._tokenExpirationDate * 1000))
     if (loadedUser.token) {
       this.user.next(loadedUser)
-      this.autoLogout(new Date(userData._tokenExpirationDate).getTime() - new Date().getTime())
+      //this.autoLogout(new Date(userData._tokenExpirationDate).getTime() - new Date().getTime())
     }
   }
 
