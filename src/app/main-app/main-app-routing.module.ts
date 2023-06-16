@@ -45,6 +45,7 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     component: EditPageComponent,
+    canActivate: [LoginGuard],
     title: 'VIMA Booking | Edit profile',
   },
   {
