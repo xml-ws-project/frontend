@@ -6,10 +6,8 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="class" class="flight-card__class">
-    <mat-button-toggle value="ECONOMY" aria-label="Text align left" class="class-item"> ECONOMY | {{ flight.pricelist.ECONOMY }}€ </mat-button-toggle>
-    <mat-button-toggle value="BUSINESS" aria-label="Text align center" class="class-item">
-      BUSINESS | {{ flight.pricelist.BUSINESS }}€
-    </mat-button-toggle>
+    <mat-button-toggle [value]="0" aria-label="Text align left" class="class-item"> ECONOMY | {{ flight.pricelist.ECONOMY }}€ </mat-button-toggle>
+    <mat-button-toggle [value]="1" aria-label="Text align center" class="class-item"> BUSINESS | {{ flight.pricelist.BUSINESS }}€ </mat-button-toggle>
   </mat-button-toggle-group>
   <mat-card-actions align="end">
     <button mat-raised-button class="buy-button" (click)="onBuy()">BUY NOW</button>

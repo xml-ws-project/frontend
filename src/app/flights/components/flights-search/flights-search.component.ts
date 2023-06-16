@@ -28,8 +28,8 @@ export class FlightsSearchComponent implements OnInit {
 
   onFormSubmit() {
     const dto = {
-      start: '2023-04-04',
-      end: '2023-04-06',
+      start: this.start,
+      end: this.end,
       departurePlace: this.form.value.departure,
       landingPlace: this.form.value.landing,
       numberOfSeats: this.form.value.numberOfSeats,
