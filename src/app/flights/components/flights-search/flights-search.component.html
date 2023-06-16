@@ -24,7 +24,7 @@
     <div class="flight-search__items__item">
       <mat-form-field>
         <mat-label>Number of seats</mat-label>
-        <input formControlName="numOfSeats" id="numOfSeats" name="numOfSeats" type="number" min="1" matInput required />
+        <input formControlName="numberOfSeats" id="numberOfSeats" name="numberOfSeats" type="number" min="1" matInput required />
       </mat-form-field>
     </div>
   </div>
@@ -32,3 +32,4 @@
     <button mat-raised-button color="primary" [disabled]="!form.valid">Search</button>
   </div>
 </form>
+<div class="flight-cards" *ngIf="showCards">KARTE</div>

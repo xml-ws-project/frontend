@@ -12,6 +12,7 @@ import { ReservationResponse } from 'src/app/accommodation/interface/Reservation
 @Injectable()
 export class RequestService {
   private reservationUrl = environment.reservationURL
+  private monoUrl = environment.monoAppURL
   constructor(private toastr: ToastrService, private http: HttpClient) {}
 
   public findAllByUser(request: UserRequestDTO): Observable<any> {
@@ -32,5 +33,9 @@ export class RequestService {
 
   public findById(resid): Observable<any> {
     return this.http.get(`${this.reservationUrl}/${resid}`)
+  }
+
+  public findFlightsForReservation(dto): Observable<any> {
+    return this.http.put(`${this.monoUrl}/flight/for/reservation`, dto)
   }
 }

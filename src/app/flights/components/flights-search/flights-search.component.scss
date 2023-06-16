@@ -8,6 +8,11 @@
   background-color: var(--background);
   border: 3px solid var(--main);
 
+  form {
+    width: 100%;
+    height: 70%;
+  }
+
   &__items {
     height: 70%;
     width: 100%;
