@@ -14,6 +14,7 @@ export class FlightsSearchComponent implements OnInit {
 
   public form: FormGroup
   public showCards: boolean = false
+  public flights = []
 
   constructor(private service: RequestService, private toastr: ToastrService) {}
 
@@ -27,8 +28,8 @@ export class FlightsSearchComponent implements OnInit {
 
   onFormSubmit() {
     const dto = {
-      start: '2023-04-04',
-      end: '2023-04-06',
+      start: this.start,
+      end: this.end,
       departurePlace: this.form.value.departure,
       landingPlace: this.form.value.landing,
       numberOfSeats: this.form.value.numberOfSeats,
@@ -37,10 +38,11 @@ export class FlightsSearchComponent implements OnInit {
     this.service.findFlightsForReservation(dto).subscribe((response) => {
       console.log(response)
       if (response.length === 0) {
-        this.toastr.info('There are no available flights for your reservation.')
+        this.toastr.info('There are no available flights in time of your reservation.')
         this.showCards = false
         return
       }
+      this.flights = response
       this.showCards = true
     })
   }

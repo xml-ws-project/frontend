@@ -11,6 +11,7 @@ import { AccommodationModule } from '../accommodation/accommodation.module'
 import { ReservationRequestsModule } from '../reservation-requests/reservation-requests.module'
 import { RequestService } from '../reservation-requests/services/request.service'
 import { FlightsModule } from '../flights/flights.module'
+import { FlightService } from '../flights/services/flight.service'
 
 @NgModule({
   declarations: [MainAppComponent, NavbarComponent],
@@ -26,6 +27,6 @@ import { FlightsModule } from '../flights/flights.module'
     FlightsModule,
   ],
   exports: [MatMenuModule],
-  providers: [RequestService],
+  providers: [RequestService, FlightService],
 })
 export class MainAppModule {}

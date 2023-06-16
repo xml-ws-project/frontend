@@ -8,9 +8,22 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
+import { MatCardModule } from '@angular/material/card'
+import { FlightCardComponent } from './components/flight-card/flight-card.component'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 
 @NgModule({
-  declarations: [FlightsPageComponent, FlightsSearchComponent],
-  imports: [CommonModule, MatButtonModule, MatDatepickerModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, FormsModule],
+  declarations: [FlightsPageComponent, FlightsSearchComponent, FlightCardComponent],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonToggleModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    FormsModule,
+  ],
 })
 export class FlightsModule {}

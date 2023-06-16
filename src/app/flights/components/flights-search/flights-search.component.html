@@ -3,9 +3,9 @@
     <div class="flight-search__items__item">
       <mat-form-field>
         <mat-label>Reservation date</mat-label>
-        <mat-date-range-input disabled>
-          <input matStartDate placeholder="Start date" [defaultValue]="start" />
-          <input matEndDate placeholder="End date" [defaultValue]="end" />
+        <mat-date-range-input>
+          <input class="start-date" matStartDate [defaultValue]="start" />
+          <input matEndDate [defaultValue]="end" />
         </mat-date-range-input>
       </mat-form-field>
     </div>
@@ -32,4 +32,10 @@
     <button mat-raised-button color="primary" [disabled]="!form.valid">Search</button>
   </div>
 </form>
-<div class="flight-cards" *ngIf="showCards">KARTE</div>
+<div class="flight-cards">
+  <div class="flight-cards__container">
+    <div *ngFor="let flight of flights">
+      <app-flight-card [flight]="flight" [numOfTickets]="this.form.value.numberOfSeats"></app-flight-card>
+    </div>
+  </div>
+</div>
