@@ -7,6 +7,8 @@ import { LandingPageComponent } from '../accommodation/components/landing-page/l
 import { ResultOverviewComponent } from '../accommodation/components/result-overview/result-overview.component'
 import { AccommodationsOverviewComponent } from '../accommodation/components/host/accommodations-overview/accommodations-overview.component'
 import { EditPageComponent } from '../auth/components/edit-page/edit-page/edit-page.component'
+import { LoginGuard } from '../auth/guard/login.guard'
+import { FlightsPageComponent } from '../flights/components/flights-page/flights-page.component'
 
 const routes: Routes = [
   {
@@ -25,20 +27,32 @@ const routes: Routes = [
   {
     path: 'requests',
     component: RequestsPageComponent,
+    canActivate: [LoginGuard],
+    title: 'VIMA Booking | Requests',
   },
   {
     path: 'add-accom',
     component: AddAccomComponent,
+    canActivate: [LoginGuard],
     title: 'VIMA Booking | Add Accommodation',
   },
   {
     path: 'accommodations-overview',
     component: AccommodationsOverviewComponent,
+    canActivate: [LoginGuard],
+    title: 'VIMA Booking | Accommodation Overview',
   },
   {
     path: 'edit-profile',
     component: EditPageComponent,
+    canActivate: [LoginGuard],
     title: 'VIMA Booking | Edit profile',
+  },
+  {
+    path: 'flight-search/:id',
+    component: FlightsPageComponent,
+    canActivate: [LoginGuard],
+    title: 'VIMA Booking | Flight Search',
   },
 ]
 

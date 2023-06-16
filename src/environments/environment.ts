@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   reservationURL: 'http://localhost:8081/reservation',
   authURL: 'http://localhost:8081/api/auth',
-  accommodationURL: 'http://localhost:8081/accommodation'
+  accommodationURL: 'http://localhost:8081/accommodation',
+  monoAppURL: 'http://localhost:5159',
 }
 
 /*

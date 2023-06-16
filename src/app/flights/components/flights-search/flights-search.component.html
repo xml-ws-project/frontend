@@ -1,0 +1,35 @@
+<form [formGroup]="form" (submit)="onFormSubmit()" class="flight-search">
+  <div class="flight-search__items">
+    <div class="flight-search__items__item">
+      <mat-form-field>
+        <mat-label>Reservation date</mat-label>
+        <mat-date-range-input disabled>
+          <input matStartDate placeholder="Start date" [defaultValue]="start" />
+          <input matEndDate placeholder="End date" [defaultValue]="end" />
+        </mat-date-range-input>
+      </mat-form-field>
+    </div>
+    <div class="flight-search__items__item">
+      <mat-form-field>
+        <mat-label>Departure place</mat-label>
+        <input formControlName="departure" id="departure" name="departure" type="text" matInput required />
+      </mat-form-field>
+    </div>
+    <div class="flight-search__items__item">
+      <mat-form-field>
+        <mat-label>Landing place</mat-label>
+        <input formControlName="landing" id="landing" name="landing" type="text" matInput required />
+      </mat-form-field>
+    </div>
+    <div class="flight-search__items__item">
+      <mat-form-field>
+        <mat-label>Number of seats</mat-label>
+        <input formControlName="numberOfSeats" id="numberOfSeats" name="numberOfSeats" type="number" min="1" matInput required />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flight-search__submit">
+    <button mat-raised-button color="primary" [disabled]="!form.valid">Search</button>
+  </div>
+</form>
+<div class="flight-cards" *ngIf="showCards">KARTE</div>

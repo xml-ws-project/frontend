@@ -15,7 +15,7 @@ import { Router } from '@angular/router'
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'start', 'end', 'status', 'accomID', 'numOfGuests', 'options']
+  displayedColumns: string[] = ['id', 'start', 'end', 'status', 'accomID', 'numOfGuests', 'options', 'flights']
   private _dataSource = new MatTableDataSource<RequestResponse>()
   private userSub: Subscription | undefined
   private userId
@@ -84,5 +84,9 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.reqService.findAllByUser(this.requestDTO).subscribe((response) => {
       this._dataSource = response
     })
+  }
+
+  onFlightSearch(resId) {
+    this.router.navigate([`/flight-search/${resId}`])
   }
 }

@@ -1,18 +1,15 @@
 <div class="mat-elevation-z8" *ngIf="showTable">
   <table mat-table [dataSource]="dataSource">
-    <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="start">
       <th mat-header-cell *matHeaderCellDef>Start</th>
       <td mat-cell *matCellDef="let element">{{ element.start | date : 'dd.MM.yyyy' }}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="end">
       <th mat-header-cell *matHeaderCellDef>End</th>
       <td mat-cell *matCellDef="let element">{{ element.end | date : 'dd.MM.yyyy' }}</td>
@@ -38,16 +35,36 @@
       <td mat-cell *matCellDef="let element">
         <div class="host__options" *ngIf="userRole === 'HOST'">
           <div class="host__options__container">
-            <button class="accept" role="button" (click)="onHostResponse(element.id, true)">Accept</button>
+            <button class="button-class accept" role="button" (click)="onHostResponse(element.id, true)">Accept</button>
           </div>
           <div class="host__options__container">
-            <button class="decline" role="button" (click)="onHostResponse(element.id, false)">Decline</button>
+            <button class="decline button-class" role="button" (click)="onHostResponse(element.id, false)">Decline</button>
           </div>
         </div>
         <div class="guest__options" *ngIf="userRole === 'GUEST'">
-          <button *ngIf="element.status === 'PENDING'" class="withdraw" role="button" (click)="onGuestCancelation(element.id)">Cancel Request</button>
-          <button *ngIf="element.status === 'ACCEPTED'" class="decline" role="button" (click)="onGuestCancelation(element.id)">
+          <button *ngIf="element.status === 'PENDING'" class="withdraw button-class" role="button" (click)="onGuestCancelation(element.id)">
+            Cancel Request
+          </button>
+          <button *ngIf="element.status === 'ACCEPTED'" class="decline button-class" role="button" (click)="onGuestCancelation(element.id)">
             Cancel Reservation
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="flights">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <div class="search-flights">
+          <button
+            mat-mini-fab
+            matTooltip="Primary"
+            (click)="onFlightSearch(element.id)"
+            class="search-flights"
+            color="primary"
+            aria-label="Example mini fab with a heart icon"
+          >
+            <mat-icon>flight_takeoff</mat-icon>
           </button>
         </div>
       </td>
