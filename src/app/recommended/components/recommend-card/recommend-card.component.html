@@ -1,1 +1,18 @@
-<p>recommend-card works!</p>
+<mat-card class="recommend-card">
+  <div class="recommend-card__header">
+    <img mat-card-md-image src="../../../../assets/pictures/accommodation.jpg" alt="IMAGE" />
+    <mat-card-header>
+      <mat-card-title>{{ item.name }}</mat-card-title>
+      <mat-card-subtitle class="recommend-card__header__address"
+        >{{ item.street }} {{ item.number }}, {{ item.city }} {{ item.country }}</mat-card-subtitle
+      >
+      <mat-card-subtitle class="recommend-card__header__benefit">
+        Additional Benefits: &nbsp;
+        <div *ngFor="let item of item.benefits">{{ item.name }},&nbsp;</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+  </div>
+  <mat-card-actions align="end">
+    <button mat-raised-button>View Details</button>
+  </mat-card-actions>
+</mat-card>
