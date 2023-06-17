@@ -13,6 +13,7 @@ import { RequestService } from '../reservation-requests/services/request.service
 import { FlightsModule } from '../flights/flights.module'
 import { FlightService } from '../flights/services/flight.service'
 import { RecommendedModule } from '../recommended/recommended.module'
+import { RecommendService } from '../recommended/services/recommend.service'
 
 @NgModule({
   declarations: [MainAppComponent, NavbarComponent],
@@ -29,6 +30,6 @@ import { RecommendedModule } from '../recommended/recommended.module'
     RecommendedModule,
   ],
   exports: [MatMenuModule],
-  providers: [RequestService, FlightService],
+  providers: [RequestService, FlightService, RecommendService],
 })
 export class MainAppModule {}

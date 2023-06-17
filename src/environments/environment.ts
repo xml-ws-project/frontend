@@ -8,6 +8,7 @@ export const environment = {
   authURL: 'http://localhost:8081/api/auth',
   accommodationURL: 'http://localhost:8081/accommodation',
   monoAppURL: 'http://localhost:5159',
+  recommendURL: 'http://localhost:8081/recommendation',
 }
 
 /*
