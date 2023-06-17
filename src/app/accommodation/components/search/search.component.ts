@@ -3,10 +3,10 @@ import { SearchRequest } from './../../interface/SearchRequest'
 import { ToastrService } from 'ngx-toastr'
 import { AccommdationService } from './../../service/accommdation.service'
 import { Component, OnInit } from '@angular/core'
-import { AccommodationResponse } from '../../interface/AccommodationResponse'
 import { HttpErrorResponse } from '@angular/common/http'
 import { SearchResponse } from '../../interface/SearchResponse'
 import { SearchResult } from '../class/SearchResult'
+import { AccommodationResponse } from '../../interface/AccommodationResponse'
 
 @Component({
   selector: 'app-search',

@@ -9,6 +9,7 @@ import { AccommodationsOverviewComponent } from '../accommodation/components/hos
 import { EditPageComponent } from '../auth/components/edit-page/edit-page/edit-page.component'
 import { LoginGuard } from '../auth/guard/login.guard'
 import { FlightsPageComponent } from '../flights/components/flights-page/flights-page.component'
+import { RecommendedPageComponent } from '../recommended/components/recommended-page/recommended-page.component'
 
 const routes: Routes = [
   {
@@ -53,6 +54,12 @@ const routes: Routes = [
     component: FlightsPageComponent,
     canActivate: [LoginGuard],
     title: 'VIMA Booking | Flight Search',
+  },
+  {
+    path: 'recommended',
+    component: RecommendedPageComponent,
+    canActivate: [LoginGuard],
+    title: 'VIMA Booking | Recommended',
   },
 ]
 
