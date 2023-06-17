@@ -1,0 +1,21 @@
+.recommend-page {
+  width: 70%;
+  margin: auto;
+  margin-top: 7rem;
+
+  &__header {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 500;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    margin-top: 6rem;
+  }
+}

@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   public subscription: Subscription
   public intervalId: any
 
-  constructor(private router: Router, private authService: AuthService, private toastr: ToastrService) { }
+  constructor(private router: Router, private authService: AuthService, private toastr: ToastrService) {}
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger
 
@@ -98,11 +98,11 @@ export class NavbarComponent implements OnInit {
   onDelete() {
     this.authService.deleteUser().subscribe(
       (response: string) => {
-        this.onLogout();
+        this.onLogout()
       },
       (error: HttpErrorResponse) => {
-        this.toastr.error(error.message);
-      }
+        this.toastr.error(error.message)
+      },
     )
   }
 
@@ -112,5 +112,9 @@ export class NavbarComponent implements OnInit {
 
   accomReview() {
     this.router.navigate(['/accommodations-overview'])
+  }
+
+  onRecommended() {
+    this.router.navigate(['/recommended'])
   }
 }
