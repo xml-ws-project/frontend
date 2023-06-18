@@ -36,7 +36,6 @@ export class FlightsSearchComponent implements OnInit {
     }
 
     this.service.findFlightsForReservation(dto).subscribe((response) => {
-      console.log(response)
       if (response.length === 0) {
         this.toastr.info('There are no available flights in time of your reservation.')
         this.showCards = false
