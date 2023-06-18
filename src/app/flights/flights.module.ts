@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { MatCardModule } from '@angular/material/card'
 import { FlightCardComponent } from './components/flight-card/flight-card.component'
 import { MatButtonToggleModule } from '@angular/material/button-toggle'
+import { MatDialogModule } from '@angular/material/dialog'
 
 @NgModule({
   declarations: [FlightsPageComponent, FlightsSearchComponent, FlightCardComponent],
@@ -23,6 +24,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatDialogModule,
     FormsModule,
   ],
 })
