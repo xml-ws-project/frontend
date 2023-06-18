@@ -9,6 +9,10 @@ export class FlightService {
 
   constructor(private http: HttpClient) {}
 
+  public validateApiKey(key: string): Observable<any> {
+    return this.http.put(`${this.monoUrl}/api-key/validate/${key}`, [])
+  }
+
   public buyTicket(data: any): Observable<any> {
     return this.http.post<any>(`${this.monoUrl}/ticket`, data)
   }

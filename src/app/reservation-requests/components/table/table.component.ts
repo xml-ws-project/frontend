@@ -46,7 +46,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     this.reqService.findAllByUser(this.requestDTO).subscribe((response) => {
       this._dataSource = new MatTableDataSource(response)
-      if (this._dataSource.data.length === 0) {
+      if (this._dataSource.data.length === 0 || response === undefined) {
         this.showTable = false
         return
       }

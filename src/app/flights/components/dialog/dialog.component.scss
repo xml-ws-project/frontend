@@ -1,0 +1,23 @@
+@import '../../../../colors.scss';
+
+.input {
+  width: 100% !important;
+  font-size: 1.5rem !important;
+}
+
+.actions {
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-top: 2rem !important;
+  font-size: 1.5rem !important;
+
+  &__cancel {
+    background-color: var(--error) !important;
+    color: var(--pure-white) !important;
+  }
+
+  &__validate {
+    background-color: var(--fav-dark) !important;
+    color: var(--pure-white) !important;
+  }
+}
