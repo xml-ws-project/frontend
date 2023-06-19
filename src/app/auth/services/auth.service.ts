@@ -110,4 +110,8 @@ export class AuthService {
     var sub = decoded['sub']
     return sub.split(',')[1].trim()
   }
+
+  public getHostIdByUsername(username: string): Observable<string> {
+    return this.http.get<string>(this.authURL + '/' + username)
+  }
 }

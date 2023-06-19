@@ -5,7 +5,6 @@
   width: 60%;
   min-height: 100vh;
   padding: 5rem;
-
 }
 
 .right-side {
@@ -96,6 +95,85 @@
 }
 
 .mat-row:hover {
-  background-color: #AFE1AF;
+  background-color: #afe1af;
   cursor: pointer;
+}
+
+.filterDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7%;
+  margin-bottom: 2%;
+}
+
+.selectedBenefits {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: row;
+  margin-bottom: 3%;
+}
+
+.plusButton {
+  color: var(--fav-light);
+  border-radius: 8px;
+}
+
+.plusButton:hover {
+  background: lightgrey;
+}
+
+.benefits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.priceInputs {
+  width: 10%;
+  text-align: center;
+  border-radius: 8px;
+  height: 30px;
+  border: 3px solid var(--fav-light);
+}
+.benefitInput {
+  text-align: center;
+  border-radius: 8px;
+  height: 30px;
+  border: 3px solid var(--fav-light);
+}
+
+.hostInput {
+  text-align: center;
+  border-radius: 8px;
+  border: 3px solid var(--fav-light);
+  height: 30px;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 30px;
+}
+
+.filterButton {
+  height: 30px;
+  border: 3px solid var(--fav-light);
+  border-radius: 8px;
+  padding: 2px;
+  width: 100px;
+  color: white;
+  background: var(--fav-light);
+}
+
+.filterButton:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
