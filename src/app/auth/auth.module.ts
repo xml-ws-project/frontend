@@ -14,6 +14,7 @@ import { RegisterFormComponent } from './components/register-form/register-form.
 import { RegisterPageComponent } from './components/register-page/register-page.component'
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { EditPageComponent } from './components/edit-page/edit-page/edit-page.component'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [HomeButtonComponent, LoginPageComponent, LoginFormComponent, RegisterPageComponent, RegisterFormComponent, EditPageComponent],
@@ -27,6 +28,7 @@ import { EditPageComponent } from './components/edit-page/edit-page/edit-page.co
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatSlideToggleModule
   ],
 })
-export class AuthModule {}
+export class AuthModule { }
