@@ -135,8 +135,7 @@ export class ResultOverviewComponent implements OnInit {
 
   async filterAccommodations() {
     if (this.hostTemp.trim() != '') {
-      const hostId: string = await this.authService.getHostIdByUsername(this.hostTemp).toPromise()
-      this.filterRequest.hostName = hostId
+      this.filterRequest.hostName = await this.authService.getHostIdByUsername(this.hostTemp).toPromise()
     }
     this.accommodationService.filterAccommodations(this.filterRequest).subscribe((response: SearchResponse[]) => {
       this.dataSource = new MatTableDataSource<SearchResponse>(response)
