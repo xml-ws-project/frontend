@@ -52,7 +52,7 @@
               <mat-icon>notification_important</mat-icon>
               <span>Requests</span>
             </button>
-            <button mat-menu-item (click)="onRecommended()">
+            <button *ngIf="role == 'GUEST'" mat-menu-item (click)="onRecommended()">
               <mat-icon>stars</mat-icon>
               <span>Recommended</span>
             </button>

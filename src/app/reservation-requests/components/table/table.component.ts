@@ -23,7 +23,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   public showTable: boolean = false
   private requestDTO
 
-  constructor(private reqService: RequestService, private authService: AuthService, private toastr: ToastrService, private router: Router) {}
+  constructor(private reqService: RequestService, private authService: AuthService, private toastr: ToastrService, private router: Router) { }
 
   public get dataSource() {
     return this._dataSource
@@ -66,7 +66,6 @@ export class TableComponent implements OnInit, AfterViewInit {
       id: resId,
       accept: accept,
     }
-
     this.reqService.hostResponse(dto).subscribe((response) => {
       accept ? this.toastr.success(response) : this.toastr.error(response)
       this.refreshData()
