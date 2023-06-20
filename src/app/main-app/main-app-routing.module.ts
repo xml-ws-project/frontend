@@ -10,6 +10,8 @@ import { EditPageComponent } from '../auth/components/edit-page/edit-page/edit-p
 import { LoginGuard } from '../auth/guard/login.guard'
 import { FlightsPageComponent } from '../flights/components/flights-page/flights-page.component'
 import { RecommendedPageComponent } from '../recommended/components/recommended-page/recommended-page.component'
+import { HostRatingsComponent } from '../rating/host-ratings/host-ratings.component'
+import { RatingFormComponent } from '../rating/rating-form/rating-form.component'
 
 const routes: Routes = [
   {
@@ -60,6 +62,18 @@ const routes: Routes = [
     component: RecommendedPageComponent,
     canActivate: [LoginGuard],
     title: 'VIMA Booking | Recommended',
+  },
+  {
+    path: 'host-ratings/:id',
+    component: HostRatingsComponent,
+    canActivate: [LoginGuard],
+    title: 'VIMA Booking | Ratings',
+  },
+  {
+    path: 'rate-host',
+    component: RatingFormComponent,
+    canActivate: [LoginGuard],
+    title: 'VIMA Booking | Rate',
   },
 ]
 

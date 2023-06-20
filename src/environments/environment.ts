@@ -9,6 +9,7 @@ export const environment = {
   accommodationURL: 'http://localhost:8081/accommodation',
   monoAppURL: 'http://localhost:5159',
   recommendURL: 'http://localhost:8081/recommendation',
+  ratingURL: 'http://localhost:8081/rating',
 }
 
 /*

@@ -1,0 +1,15 @@
+<h1 class="host">{{ avgRate.firstName }} {{ avgRate.lastName }}</h1>
+<h2 class="avgRate">Average rating : {{ avgRate.avgRate }}</h2>
+<mat-card *ngFor="let rating of rates">
+  <mat-card-header>
+    <mat-card-title> Rating : {{ rating.value }} </mat-card-title>
+  </mat-card-header>
+  <mat-card-content
+    ><div>User : {{ rating.username }}</div>
+    <div class="date">Date : {{ rating.date }}</div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button class="change-button mat-button-primary" (click)="edit(avgRate.firstName, avgRate.lastName, rating.id)">Change</button>
+    <button mat-button class="delete-button mat-button-warn" (click)="delete(rating.id)">Delete</button>
+  </mat-card-actions>
+</mat-card>

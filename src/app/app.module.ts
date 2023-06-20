@@ -20,6 +20,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
+import { HostRatingsComponent } from './rating/host-ratings/host-ratings.component'
+import { MatCard, MatCardModule } from '@angular/material/card'
 
 @NgModule({
   declarations: [AppComponent, AddAccomComponent],
@@ -33,6 +35,7 @@ import { MatSelectModule } from '@angular/material/select'
     HttpClientModule,
     AuthModule,
     FormsModule,
+    MatCardModule,
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
