@@ -36,6 +36,15 @@ export class EditPageComponent implements OnInit {
   currentUsername = this.authService.getUsername()
 
   ngOnInit() {
+    this.userNotificationOptions = {
+      id: null as any,
+      reservationRequest: false,
+      reservationCancellation: false,
+      profileRating: false,
+      accommodationRating: false,
+      distinguishedHostStatus: false,
+      hostsReservationAnswer: false
+    }
     this.authService.user.subscribe((user) => {
       this.userInfo = user;
       this.getUserNotificationOptions();
@@ -45,7 +54,6 @@ export class EditPageComponent implements OnInit {
   getUserNotificationOptions(): void {
     this.notificationService.get(this.userInfo.id).subscribe(
       (response: NotificationOptions) => {
-        console.log(response)
         this.userNotificationOptions = response;
       },
       (error: HttpErrorResponse) => {

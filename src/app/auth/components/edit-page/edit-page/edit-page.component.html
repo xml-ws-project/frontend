@@ -45,21 +45,21 @@
           <label>Reservation requests</label>
           <mat-slide-toggle
             [color]="color"
-            [checked]="userNotificationOptions.reservationRequest"
+            [(ngModel)]="userNotificationOptions.reservationRequest"
           ></mat-slide-toggle>
         </div>
         <div class="notification-options__form__row__item" *ngIf="userInfo.role === 'HOST'">
           <label>Reservation cancellation</label>
           <mat-slide-toggle
             [color]="color"
-            [checked]="userNotificationOptions.reservationCancellation"
+            [(ngModel)]="userNotificationOptions.reservationCancellation"
           ></mat-slide-toggle>
         </div>
         <div class="notification-options__form__row__item" *ngIf="userInfo.role === 'GUEST'">
           <label>Host reservation answers</label>
           <mat-slide-toggle
             [color]="color"
-            [checked]="userNotificationOptions.hostsReservationAnswer"
+            [(ngModel)]="userNotificationOptions.hostsReservationAnswer"
           ></mat-slide-toggle>
         </div>
       </div>
@@ -68,26 +68,26 @@
           <label>Profile rating</label>
           <mat-slide-toggle
             [color]="color"
-            [checked]="userNotificationOptions.profileRating"
+            [(ngModel)]="userNotificationOptions.profileRating"
           ></mat-slide-toggle>
         </div>
         <div class="notification-options__form__row__item" *ngIf="userInfo.role === 'HOST'">
           <label>Accommodation rating</label>
           <mat-slide-toggle
             [color]="color"
-            [checked]="userNotificationOptions.accommodationRating"
+            [(ngModel)]="userNotificationOptions.accommodationRating"
           ></mat-slide-toggle>
         </div>
         <div class="notification-options__form__row__item" *ngIf="userInfo.role === 'HOST'">
           <label>Distinguished host status</label>
           <mat-slide-toggle
             [color]="color"
-            [checked]="userNotificationOptions.distinguishedHostStatus"
+            [(ngModel)]="userNotificationOptions.distinguishedHostStatus"
           ></mat-slide-toggle>
         </div>
       </div>
       <div class="notification-options__form__submit">
-        <button type="submit" id="submit" (click)="editNotificationOptions">Submit</button>
+        <button type="submit" id="submit" (click)="editNotificationOptions()">Submit</button>
       </div>
     </div>
   </div>

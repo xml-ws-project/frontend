@@ -42,7 +42,7 @@ export class ResultOverviewComponent implements OnInit {
     private router: Router,
     private reservationService: RequestService,
     private toastrService: ToastrService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.accommodationService.desiredAccommodations.subscribe((x) => {
@@ -136,6 +136,10 @@ export class ResultOverviewComponent implements OnInit {
   async filterAccommodations() {
     if (this.hostTemp.trim() != '') {
       this.filterRequest.hostName = await this.authService.getHostIdByUsername(this.hostTemp).toPromise()
+      if (this.filterRequest.hostName == null) {
+        this.toastrService.info("Entered non existing host.");
+        return;
+      }
     }
     this.accommodationService.filterAccommodations(this.filterRequest).subscribe((response: SearchResponse[]) => {
       this.dataSource = new MatTableDataSource<SearchResponse>(response)
